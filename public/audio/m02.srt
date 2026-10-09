@@ -1,0 +1,152 @@
+1
+00:00:00,050 --> 00:00:01,950
+Welcome to Module Two.
+
+2
+00:00:01,950 --> 00:00:03,725
+Think about mutation rate.
+
+3
+00:00:03,725 --> 00:00:07,112
+Too low, and a lineage is stable but stuck.
+
+4
+00:00:07,112 --> 00:00:13,175
+Too high, and it explores wildly, but noise piles up and good solutions get lost.
+
+5
+00:00:13,175 --> 00:00:17,912
+Somewhere in between is a useful balance, and the right balance depends on the job.
+
+6
+00:00:17,912 --> 00:00:22,587
+A language model faces that same trade-off at every single word it writes.
+
+7
+00:00:22,587 --> 00:00:26,025
+Yesterday was about training, how the weights are shaped.
+
+8
+00:00:26,025 --> 00:00:30,462
+Today is about what happens when a trained model actually produces text.
+
+9
+00:00:30,462 --> 00:00:32,962
+First, a small piece of vocabulary.
+
+10
+00:00:32,962 --> 00:00:35,837
+Models do not read words or letters.
+
+11
+00:00:35,837 --> 00:00:40,575
+They read tokens, which are chunks of text, often pieces of words.
+
+12
+00:00:40,575 --> 00:00:47,125
+Tokens are also how cost, usage limits and memory are counted, so you will hear that word a lot in this course.
+
+13
+00:00:47,125 --> 00:00:48,712
+Now the key idea.
+
+14
+00:00:48,712 --> 00:00:51,875
+At each step, the model does not pick a word.
+
+15
+00:00:51,875 --> 00:00:57,712
+It scores every possible next token, and turns those scores into a probability distribution.
+
+16
+00:00:57,712 --> 00:01:07,937
+For a sentence like, perform the concerto for, blank, a good model spreads its bets over violin, piano and trumpet, and puts almost nothing on airplane.
+
+17
+00:01:07,937 --> 00:01:12,950
+Then a separate piece of machinery, the sampler, draws one token from that distribution.
+
+18
+00:01:12,950 --> 00:01:16,750
+The token is added to the text, and the whole thing repeats.
+
+19
+00:01:16,750 --> 00:01:19,512
+Temperature is the dial on that sampler.
+
+20
+00:01:19,512 --> 00:01:24,950
+Low temperature sharpens the distribution, so the top choice almost always wins.
+
+21
+00:01:24,950 --> 00:01:28,862
+High temperature flattens it, so rarer choices get through.
+
+22
+00:01:28,862 --> 00:01:33,175
+In other words, temperature behaves a lot like a mutation rate.
+
+23
+00:01:33,175 --> 00:01:36,487
+In the widget you can move that dial and draw samples.
+
+24
+00:01:36,487 --> 00:01:41,575
+Try a peaked distribution and a flat one, and count how many different words you get.
+
+25
+00:01:41,575 --> 00:01:43,675
+There is a twist worth remembering.
+
+26
+00:01:43,675 --> 00:01:51,037
+When you need facts pulled out of a document, numbers from a field sheet, a yes or no decision, you want temperature at zero.
+
+27
+00:01:51,037 --> 00:01:53,962
+Exploration there is a bug, not a feature.
+
+28
+00:01:53,962 --> 00:01:56,800
+And low temperature does not make a model right.
+
+29
+00:01:56,800 --> 00:01:58,562
+It only makes it consistent.
+
+30
+00:01:58,562 --> 00:02:01,262
+It will repeat the same mistake every time.
+
+31
+00:02:01,262 --> 00:02:03,512
+That is where the metaphor fails, too.
+
+32
+00:02:03,512 --> 00:02:08,412
+Mutations are inherited, and selection acts on them over generations.
+
+33
+00:02:08,412 --> 00:02:12,475
+A temperature setting reshapes one draw at one step.
+
+34
+00:02:12,475 --> 00:02:22,612
+Nothing is inherited, and nothing is selected, unless you build the selection yourself, for example by sampling several answers and keeping the one that passes a check.
+
+35
+00:02:22,612 --> 00:02:25,937
+We will do exactly that in the unit on evals.
+
+36
+00:02:25,937 --> 00:02:36,012
+In today's lab, you will ask your coding agent to run the same question ten times, once vague and once precise, and measure how much the answers vary.
+
+37
+00:02:36,012 --> 00:02:39,725
+You will see the prompt itself acting like a selective pressure.
+
+38
+00:02:39,725 --> 00:02:42,562
+Open the sampler, and start turning the dial.
+

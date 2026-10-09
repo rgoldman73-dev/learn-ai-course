@@ -1,0 +1,16 @@
+{
+ "m01": {
+  "file": "m01.mp3",
+  "seconds": 164.016,
+  "chars": 2629,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m02": {
+  "file": "m02.mp3",
+  "seconds": 162.624,
+  "chars": 2541,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ }
+}

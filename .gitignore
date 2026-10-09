@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dev-dist/
+.venv/
+learn-ai-rag
+rag
+screenshots/
+.build-logs/
+*.log
+*.zip
+.env
+.env.*
+.DS_Store
+*.pem
+*.key

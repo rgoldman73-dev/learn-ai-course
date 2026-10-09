@@ -1,0 +1,160 @@
+1
+00:00:00,050 --> 00:00:01,937
+Welcome to Module One.
+
+2
+00:00:01,937 --> 00:00:04,375
+You already know how evolution works.
+
+3
+00:00:04,375 --> 00:00:11,337
+Variation, selection and inheritance, repeated until a population climbs a fitness landscape.
+
+4
+00:00:11,337 --> 00:00:20,475
+Today you will see that training a large language model is the same kind of search, turned upside down, and you will also see exactly where that comparison breaks.
+
+5
+00:00:20,475 --> 00:00:22,237
+Start with the landscape.
+
+6
+00:00:22,237 --> 00:00:26,037
+In your field, height is fitness, and populations climb.
+
+7
+00:00:26,037 --> 00:00:28,375
+In machine learning, height is loss.
+
+8
+00:00:28,375 --> 00:00:32,112
+Loss is a single number that says how wrong the model is.
+
+9
+00:00:32,112 --> 00:00:35,312
+So instead of climbing, the model descends.
+
+10
+00:00:35,312 --> 00:00:36,787
+What is it wrong about?
+
+11
+00:00:36,787 --> 00:00:38,487
+Something very simple.
+
+12
+00:00:38,487 --> 00:00:42,987
+Take real text, hide the next word, and ask the model to guess it.
+
+13
+00:00:42,987 --> 00:00:45,500
+If the guess is good, little changes.
+
+14
+00:00:45,500 --> 00:00:52,150
+If the guess is bad, that error becomes a signal, and the model is nudged so that next time it guesses better.
+
+15
+00:00:52,150 --> 00:00:56,737
+Do that across a vast amount of text, and the guesses get remarkably good.
+
+16
+00:00:56,737 --> 00:00:59,175
+The model's genotype is its weights.
+
+17
+00:00:59,175 --> 00:01:00,675
+Billions of numbers.
+
+18
+00:01:00,675 --> 00:01:05,225
+The landscape is the loss over every possible setting of those numbers.
+
+19
+00:01:05,225 --> 00:01:08,150
+Here is the first big difference from evolution.
+
+20
+00:01:08,150 --> 00:01:12,512
+A population discovers which way is uphill by trial and error.
+
+21
+00:01:12,512 --> 00:01:15,900
+Mutants scatter, selection keeps the lucky ones.
+
+22
+00:01:15,900 --> 00:01:18,925
+Training does something no organism can do.
+
+23
+00:01:18,925 --> 00:01:21,125
+It calculates the slope directly.
+
+24
+00:01:21,125 --> 00:01:26,262
+For every single weight, it works out which small change would lower the loss.
+
+25
+00:01:26,262 --> 00:01:31,687
+That set of slopes is called the gradient, and following it downhill is called gradient descent.
+
+26
+00:01:31,687 --> 00:01:36,050
+In today's widget you will race two strategies across the same landscape.
+
+27
+00:01:36,050 --> 00:01:37,750
+One follows the slope.
+
+28
+00:01:37,750 --> 00:01:44,887
+The other is a simple evolutionary strategy that makes a handful of mutants each generation and keeps the best.
+
+29
+00:01:44,887 --> 00:01:47,875
+Watch what happens when you make the landscape more rugged.
+
+30
+00:01:47,875 --> 00:01:53,162
+Watch what happens when the step size is too big, or the mutations too small.
+
+31
+00:01:53,162 --> 00:01:57,175
+You will find that each method fails in its own characteristic way.
+
+32
+00:01:57,175 --> 00:02:01,637
+Then comes the reading, and one habit I want you to build from day one.
+
+33
+00:02:01,637 --> 00:02:06,400
+Some of the sources in this course are excellent, and some are hype wrapped around a good idea.
+
+34
+00:02:06,400 --> 00:02:15,250
+One article today has a lovely explanation of optimization, and also some very precise numbers about a frontier model that nobody can trace.
+
+35
+00:02:15,250 --> 00:02:16,525
+Keep the idea.
+
+36
+00:02:16,525 --> 00:02:17,837
+Drop the numbers.
+
+37
+00:02:17,837 --> 00:02:19,537
+Finally, the lab.
+
+38
+00:02:19,537 --> 00:02:32,187
+You will ask your coding agent, Claude Code or Codex, to write a small script that runs the race fifty times, from fifty random starting points, and reports how often each strategy finds the deepest valley.
+
+39
+00:02:32,187 --> 00:02:41,075
+By the end of today you should be able to explain, in plain words, why training a model is optimisation, not guessing, and why gradients beat mutation at this scale.
+
+40
+00:02:41,075 --> 00:02:43,962
+Open the widget, and let's start climbing down.
+
