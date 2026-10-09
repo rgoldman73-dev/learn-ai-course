@@ -1,0 +1,188 @@
+1
+00:00:00,050 --> 00:00:04,762
+Welcome to Module Thirty-Two, the last core module of the course.
+
+2
+00:00:04,762 --> 00:00:09,162
+You don't learn how stable a community is by watching it on a calm day.
+
+3
+00:00:09,162 --> 00:00:10,275
+You disturb it.
+
+4
+00:00:10,275 --> 00:00:13,462
+A pulse, like a flood or a removal.
+
+5
+00:00:13,462 --> 00:00:17,325
+Or a press, like a steady supply of extra nutrients.
+
+6
+00:00:17,325 --> 00:00:19,212
+Then you measure two things.
+
+7
+00:00:19,212 --> 00:00:22,062
+Resistance: how little it changes.
+
+8
+00:00:22,062 --> 00:00:25,450
+And resilience: how quickly it comes back.
+
+9
+00:00:25,450 --> 00:00:28,437
+Today you disturb your capstone on purpose.
+
+10
+00:00:28,437 --> 00:00:30,137
+Start with replication.
+
+11
+00:00:30,137 --> 00:00:35,000
+Agents are not deterministic, so one successful run tells you very little.
+
+12
+00:00:35,000 --> 00:00:40,900
+A source in the pack suggests running every task three times and judging the worst run.
+
+13
+00:00:40,900 --> 00:00:42,737
+The arithmetic is sobering.
+
+14
+00:00:42,737 --> 00:00:48,637
+If each attempt succeeds three times out of four, all three succeed less than half the time.
+
+15
+00:00:48,637 --> 00:00:51,550
+And the typical failure isn't a crash.
+
+16
+00:00:51,550 --> 00:00:55,437
+It's a fluent paragraph explaining why an error doesn't matter.
+
+17
+00:00:55,437 --> 00:00:57,125
+Then the disturbances.
+
+18
+00:00:57,125 --> 00:00:59,550
+A data file with a missing column.
+
+19
+00:00:59,550 --> 00:01:01,700
+Units swapped in one column.
+
+20
+00:01:01,700 --> 00:01:03,087
+An empty file.
+
+21
+00:01:03,087 --> 00:01:07,462
+An abstract with a hidden instruction telling your system to change its decision.
+
+22
+00:01:07,462 --> 00:01:09,562
+A search index that isn't there.
+
+23
+00:01:09,562 --> 00:01:11,500
+A model call that times out.
+
+24
+00:01:11,500 --> 00:01:15,700
+For each one, you ask: did the system notice, and did it recover?
+
+25
+00:01:15,700 --> 00:01:17,075
+Then the budget.
+
+26
+00:01:17,075 --> 00:01:19,612
+Every run costs tokens and time.
+
+27
+00:01:19,612 --> 00:01:22,762
+A team at LangChain showed how to report this well.
+
+28
+00:01:22,762 --> 00:01:34,650
+When they routed each task to the cheapest model that could handle it, they reported the typical cost, the average cost and the expensive tail, and right beside it, the quality measure, which didn't measurably change.
+
+29
+00:01:34,650 --> 00:01:37,575
+They also tried always using the cheapest model.
+
+30
+00:01:37,575 --> 00:01:41,725
+Their engineers complained within a day, and the test was stopped.
+
+31
+00:01:41,725 --> 00:01:44,550
+Cheap is only a saving if it still works.
+
+32
+00:01:44,550 --> 00:01:46,325
+Finally, the decision.
+
+33
+00:01:46,325 --> 00:01:51,825
+Anthropic's eval guide is clear: if a gain is within the noise, don't merge it.
+
+34
+00:01:51,825 --> 00:01:56,062
+And one builder in the pack asks three questions of every component.
+
+35
+00:01:56,062 --> 00:01:59,337
+Did adding agents find something one agent couldn't?
+
+36
+00:01:59,337 --> 00:02:02,237
+Did the verifier catch something the worker missed?
+
+37
+00:02:02,237 --> 00:02:03,987
+Was it worth what it cost?
+
+38
+00:02:03,987 --> 00:02:07,962
+A component that fails all three gets cut, however clever it is.
+
+39
+00:02:07,962 --> 00:02:10,050
+Here's where the metaphor breaks.
+
+40
+00:02:10,050 --> 00:02:13,312
+A forest recovers after a flood on its own.
+
+41
+00:02:13,312 --> 00:02:17,450
+Your system has no recovery processes except the ones you build.
+
+42
+00:02:17,450 --> 00:02:23,150
+Worse, it usually degrades silently, still producing tidy, confident output.
+
+43
+00:02:23,150 --> 00:02:29,025
+So your evals have to keep running, every time a model, a prompt or your data changes.
+
+44
+00:02:29,025 --> 00:02:33,250
+In the lab, you'll set your budget first, before you see a single number.
+
+45
+00:02:33,250 --> 00:02:48,412
+Then your coding agent builds one command that runs the whole eval suite and the disturbance tests, records cost and time for every call, groups the failures by cause, and writes a one-page report with ship, cut or fix for every component.
+
+46
+00:02:48,412 --> 00:02:52,150
+That report is the first page of your system's lab notebook.
+
+47
+00:02:52,150 --> 00:02:55,237
+Start with Part A, and write down your budget now.
+

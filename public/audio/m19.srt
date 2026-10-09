@@ -1,0 +1,156 @@
+1
+00:00:00,050 --> 00:00:05,300
+Welcome to Module Nineteen, the last module of the unit on niches and tools.
+
+2
+00:00:05,300 --> 00:00:10,912
+A bee landing on a flower it has never met before still knows, roughly, what to do.
+
+3
+00:00:10,912 --> 00:00:16,825
+Over a very long time, flowers and pollinators have converged on shared cues.
+
+4
+00:00:16,825 --> 00:00:19,750
+Nectar guides that glow in ultraviolet.
+
+5
+00:00:19,750 --> 00:00:21,325
+Landing platforms.
+
+6
+00:00:21,325 --> 00:00:24,412
+Colours and scents that mean, reward here.
+
+7
+00:00:24,412 --> 00:00:32,800
+Because the signal is standard, any compatible pollinator can work any compatible flower, and the whole network becomes richly connected.
+
+8
+00:00:32,800 --> 00:00:39,262
+The Model Context Protocol, usually just called M C P, is the agent world's shared cue.
+
+9
+00:00:39,262 --> 00:00:45,300
+A service that offers an M C P server can be used by any agent that speaks M C P.
+
+10
+00:00:45,300 --> 00:00:50,100
+And the agent can ask any such server a simple question: what tools do you have?
+
+11
+00:00:50,100 --> 00:00:54,512
+That one listing step is what lets a new partner be useful right away.
+
+12
+00:00:54,512 --> 00:00:57,412
+M C P is different from yesterday's skills.
+
+13
+00:00:57,412 --> 00:01:01,550
+A skill is a folder of instructions the agent reads itself.
+
+14
+00:01:01,550 --> 00:01:06,037
+An M C P server is a separate running program that the agent talks to.
+
+15
+00:01:06,037 --> 00:01:07,737
+They work well together.
+
+16
+00:01:07,737 --> 00:01:09,237
+Now scale it up.
+
+17
+00:01:09,237 --> 00:01:16,500
+Uber described what happened when hundreds of their teams started connecting agents to internal services, each in their own way.
+
+18
+00:01:16,500 --> 00:01:21,862
+Tools were scattered, duplicated and hard to find, and security was inconsistent.
+
+19
+00:01:21,862 --> 00:01:23,525
+So they built a gateway.
+
+20
+00:01:23,525 --> 00:01:35,350
+One place that keeps a catalogue of every server and tool, checks who is calling, removes personal data from responses, and translates agent calls into the language of each internal service.
+
+21
+00:01:35,350 --> 00:01:38,200
+Two of their design choices are worth stealing.
+
+22
+00:01:38,200 --> 00:01:40,925
+First, discovery does not mean exposure.
+
+23
+00:01:40,925 --> 00:01:47,137
+Automatically generated tools start switched off, until the owning team reviews and enables them.
+
+24
+00:01:47,137 --> 00:01:51,337
+Second, with thousands of tools, you can't show them all to a model.
+
+25
+00:01:51,337 --> 00:01:57,462
+So the agent searches for a server, then looks up its tools, then fetches only the one it needs.
+
+26
+00:01:57,462 --> 00:02:00,550
+You've now met that same pattern three times.
+
+27
+00:02:00,550 --> 00:02:02,650
+It's called progressive disclosure.
+
+28
+00:02:02,650 --> 00:02:05,062
+You can also reshape the agent itself.
+
+29
+00:02:05,062 --> 00:02:09,650
+Claude Code mods are small programs that watch everything happening in a session.
+
+30
+00:02:09,650 --> 00:02:17,650
+They can observe an event, rewrite it, or answer it themselves, for example by refusing a dangerous command before it runs.
+
+31
+00:02:17,650 --> 00:02:20,287
+Here's where the pollination story breaks.
+
+32
+00:02:20,287 --> 00:02:26,225
+Mutualisms evolve slowly, and cheaters are kept in check by slow ecological feedback.
+
+33
+00:02:26,225 --> 00:02:34,962
+An M C P server, written by a stranger, can join your agent in seconds, and whatever its tools say flows straight into your agent's context.
+
+34
+00:02:34,962 --> 00:02:36,662
+Trust can't evolve here.
+
+35
+00:02:36,662 --> 00:02:38,762
+You have to manage it on purpose.
+
+36
+00:02:38,762 --> 00:02:50,712
+In the lab, you'll connect a free browser server to your capstone project, use it to read one public species page and pull out its taxonomy, and then build a guard that blocks destructive commands.
+
+37
+00:02:50,712 --> 00:02:54,975
+Then you'll ask your agent to delete a folder, and watch the guard say no.
+
+38
+00:02:54,975 --> 00:02:58,937
+Together with yesterday's skill, that's your build for this unit.
+
+39
+00:02:58,937 --> 00:03:01,212
+Let's go and open some flowers.
+

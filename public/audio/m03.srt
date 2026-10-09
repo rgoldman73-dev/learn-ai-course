@@ -1,0 +1,176 @@
+1
+00:00:00,050 --> 00:00:02,037
+Welcome to Module Three.
+
+2
+00:00:02,037 --> 00:00:05,175
+In the field, you never see a genotype directly.
+
+3
+00:00:05,175 --> 00:00:06,725
+You see phenotypes.
+
+4
+00:00:06,725 --> 00:00:10,275
+Size, colour, behaviour, who survives the winter.
+
+5
+00:00:10,275 --> 00:00:13,762
+And you have learned not to take appearances at face value.
+
+6
+00:00:13,762 --> 00:00:17,537
+When you want to know what is really underneath, you design an assay.
+
+7
+00:00:17,537 --> 00:00:18,875
+A common garden.
+
+8
+00:00:18,875 --> 00:00:20,787
+A reciprocal transplant.
+
+9
+00:00:20,787 --> 00:00:22,387
+A controlled cross.
+
+10
+00:00:22,387 --> 00:00:27,787
+Today, the organism is a language model, and the phenotype is its confidence.
+
+11
+00:00:27,787 --> 00:00:32,325
+Ask a model a question and it may say, I am ninety percent sure.
+
+12
+00:00:32,325 --> 00:00:34,225
+That sounds like information.
+
+13
+00:00:34,225 --> 00:00:35,112
+But is it?
+
+14
+00:00:35,112 --> 00:00:36,675
+Here is the test.
+
+15
+00:00:36,675 --> 00:00:40,325
+Collect every answer the model gave at ninety percent.
+
+16
+00:00:40,325 --> 00:00:42,962
+Are about nine in ten of them actually right?
+
+17
+00:00:42,962 --> 00:00:47,112
+If they are, the model is calibrated, and you can act on that number.
+
+18
+00:00:47,112 --> 00:00:52,525
+If only six in ten are right, the model is overconfident, and the number is decoration.
+
+19
+00:00:52,525 --> 00:00:55,962
+Notice that this is a different question from accuracy.
+
+20
+00:00:55,962 --> 00:01:00,287
+A model can be right most of the time and still be badly calibrated.
+
+21
+00:01:00,287 --> 00:01:05,075
+And for automation, calibration is often what matters most.
+
+22
+00:01:05,075 --> 00:01:11,025
+If you know when a model is unsure, you can send those cases to a person and let the confident ones through.
+
+23
+00:01:11,025 --> 00:01:15,362
+One of today's sources is a small open-source decision model called Kev.
+
+24
+00:01:15,362 --> 00:01:20,500
+Its builders fit a single calibration setting on data the model never trained on.
+
+25
+00:01:20,500 --> 00:01:23,025
+It does not change which answer wins.
+
+26
+00:01:23,025 --> 00:01:25,687
+It only changes how sure the model sounds.
+
+27
+00:01:25,687 --> 00:01:32,562
+On new data, that one adjustment cut its confident mistakes from about eight in a hundred to between two and three.
+
+28
+00:01:32,562 --> 00:01:38,662
+They also test the model on questions that cannot be answered at all, to see whether it still claims to be sure.
+
+29
+00:01:38,662 --> 00:01:40,587
+That is a trick worth stealing.
+
+30
+00:01:40,587 --> 00:01:46,950
+The second idea today comes from Andrej Karpathy, and it is about reading outputs, not scoring them.
+
+31
+00:01:46,950 --> 00:01:54,125
+Ask for explanations in a strict, simple controlled English, the kind written for aircraft maintenance manuals.
+
+32
+00:01:54,125 --> 00:01:56,012
+Or ask for a diagram.
+
+33
+00:01:56,012 --> 00:01:57,837
+Or a small web page.
+
+34
+00:01:57,837 --> 00:02:01,475
+Short, literal statements are easier to check one at a time.
+
+35
+00:02:01,475 --> 00:02:04,350
+And here is where the metaphor fails.
+
+36
+00:02:04,350 --> 00:02:10,475
+A phenotype was shaped by selection, so on average it tells you something honest about the organism.
+
+37
+00:02:10,475 --> 00:02:16,650
+A model's fluent, confident paragraph was shaped by training to be helpful and convincing.
+
+38
+00:02:16,650 --> 00:02:18,862
+Fluency is not evidence.
+
+39
+00:02:18,862 --> 00:02:22,387
+Confidence is not evidence either, until you have tested it.
+
+40
+00:02:22,387 --> 00:02:29,937
+In the lab, you will have your coding agent write forty yes or no questions from your own field, plus five that cannot be answered.
+
+41
+00:02:29,937 --> 00:02:32,062
+You will check the answer key yourself.
+
+42
+00:02:32,062 --> 00:02:38,937
+Then a fresh model answers them with a confidence for each, and you get a reliability diagram as a little web page.
+
+43
+00:02:38,937 --> 00:02:43,437
+Finally, you will gather this whole first unit into a notebook you can come back to.
+
+44
+00:02:43,437 --> 00:02:45,825
+Open the lab, and start your assay.
+

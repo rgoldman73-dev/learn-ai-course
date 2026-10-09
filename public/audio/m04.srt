@@ -1,0 +1,180 @@
+1
+00:00:00,050 --> 00:00:05,000
+Welcome to Module Four, and to Unit Two: context is habitat.
+
+2
+00:00:05,000 --> 00:00:06,962
+You know carrying capacity.
+
+3
+00:00:06,962 --> 00:00:10,700
+Every habitat supports only so many individuals.
+
+4
+00:00:10,700 --> 00:00:13,787
+Below that limit, adding one more is cheap.
+
+5
+00:00:13,787 --> 00:00:16,387
+Near it, crowding hurts everyone.
+
+6
+00:00:16,387 --> 00:00:21,512
+Resources thin out, interference rises, and the whole population does worse.
+
+7
+00:00:21,512 --> 00:00:24,050
+A language model has a habitat too.
+
+8
+00:00:24,050 --> 00:00:28,912
+It is called the context window, the amount of text the model can hold in view at once.
+
+9
+00:00:28,912 --> 00:00:30,937
+And everything has to live there.
+
+10
+00:00:30,937 --> 00:00:32,425
+Your instructions.
+
+11
+00:00:32,425 --> 00:00:34,275
+The files the agent opened.
+
+12
+00:00:34,275 --> 00:00:36,850
+The output of every command it ran.
+
+13
+00:00:36,850 --> 00:00:38,612
+Every correction you typed.
+
+14
+00:00:38,612 --> 00:00:40,637
+Here is the first surprise.
+
+15
+00:00:40,637 --> 00:00:43,262
+The model has no memory between turns.
+
+16
+00:00:43,262 --> 00:00:49,562
+Each time you send a message, the entire conversation is sent again and read again, from the very top.
+
+17
+00:00:49,562 --> 00:00:52,025
+So a long session is not just long.
+
+18
+00:00:52,025 --> 00:00:58,162
+It gets more and more expensive with every turn, because everything earlier is paid for again and again.
+
+19
+00:00:58,162 --> 00:01:01,562
+The second surprise is what actually fills the window.
+
+20
+00:01:01,562 --> 00:01:06,950
+One of the Carnegie Mellon lecturers looked at fifteen hundred sessions of his team's coding agent.
+
+21
+00:01:06,950 --> 00:01:10,025
+The biggest share was not the model's own words.
+
+22
+00:01:10,025 --> 00:01:15,937
+It was tool results, the contents of files and the output of commands, at well over a third.
+
+23
+00:01:15,937 --> 00:01:19,087
+The model's replies to the person were about two percent.
+
+24
+00:01:19,087 --> 00:01:21,512
+Providers soften the bill with a cache.
+
+25
+00:01:21,512 --> 00:01:27,425
+If the beginning of the request is exactly the same as last time, that part is reused cheaply.
+
+26
+00:01:27,425 --> 00:01:29,637
+But exactly means exactly.
+
+27
+00:01:29,637 --> 00:01:37,612
+Put the time of day at the top of your instructions, switch models halfway through, or walk away for too long, and the cache is gone.
+
+28
+00:01:37,612 --> 00:01:40,600
+And a bigger window is not a better habitat.
+
+29
+00:01:40,600 --> 00:01:45,012
+Models get worse at finding and using information as the window fills.
+
+30
+00:01:45,012 --> 00:01:47,175
+They forget early instructions.
+
+31
+00:01:47,175 --> 00:01:53,387
+One student in the lecture described telling an agent not to delete something, and it deleted it anyway.
+
+32
+00:01:53,387 --> 00:01:56,962
+When the window nears its limit, the harness compacts it.
+
+33
+00:01:56,962 --> 00:02:01,250
+It squeezes older history into a summary and keeps the recent part.
+
+34
+00:02:01,250 --> 00:02:04,212
+That is a bit like density-dependent regulation.
+
+35
+00:02:04,212 --> 00:02:05,837
+But it loses things.
+
+36
+00:02:05,837 --> 00:02:14,575
+One team's compaction passed every benchmark, then in real use their agent forgot it had already opened a pull request, and opened it five times.
+
+37
+00:02:14,575 --> 00:02:17,150
+So where does the metaphor fail?
+
+38
+00:02:17,150 --> 00:02:18,900
+Food is eaten once.
+
+39
+00:02:18,900 --> 00:02:22,250
+Context is re-read on every single turn.
+
+40
+00:02:22,250 --> 00:02:24,737
+And crowding does not starve the model.
+
+41
+00:02:24,737 --> 00:02:25,962
+It distracts it.
+
+42
+00:02:25,962 --> 00:02:28,875
+In today's lab you will measure this yourself.
+
+43
+00:02:28,875 --> 00:02:36,512
+You will run one deliberately crowded session, check how full the window is, compact it, and test what the agent still remembers.
+
+44
+00:02:36,512 --> 00:02:41,012
+Then you will clear it and run one small, focused task, and compare.
+
+45
+00:02:41,012 --> 00:02:44,012
+Open your terminal, and let's measure the habitat.
+

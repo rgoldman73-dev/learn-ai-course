@@ -1,0 +1,156 @@
+1
+00:00:00,050 --> 00:00:05,912
+Welcome to Module Fourteen, and to the unit on food webs: systems with more than one agent.
+
+2
+00:00:05,912 --> 00:00:11,112
+Ask most people how an ant colony works, and they'll tell you about a queen giving orders.
+
+3
+00:00:11,112 --> 00:00:12,400
+You know that's wrong.
+
+4
+00:00:12,400 --> 00:00:14,562
+The queen mostly lays eggs.
+
+5
+00:00:14,562 --> 00:00:17,425
+The real coordination happens from the bottom up.
+
+6
+00:00:17,425 --> 00:00:24,962
+A forager lays pheromone on a trail, others follow the strongest trail, and the trail itself becomes the message.
+
+7
+00:00:24,962 --> 00:00:28,687
+Coordination through traces in a shared environment.
+
+8
+00:00:28,687 --> 00:00:29,762
+Stigmergy.
+
+9
+00:00:29,762 --> 00:00:35,512
+Both pictures, the boss and the trail, show up when people connect AI agents together.
+
+10
+00:00:35,512 --> 00:00:39,512
+In the first, the manager pattern, one agent stays in charge.
+
+11
+00:00:39,512 --> 00:00:46,050
+It calls specialist agents the way it would call a tool, collects their answers, and speaks to you with one voice.
+
+12
+00:00:46,050 --> 00:00:50,637
+In the second, the decentralised pattern, agents hand off.
+
+13
+00:00:50,637 --> 00:00:58,550
+A triage agent sees that your question is about an order, passes the whole conversation to the orders specialist, and steps out of the way.
+
+14
+00:00:58,550 --> 00:01:03,775
+And many real systems add a shared whiteboard that every agent reads and writes.
+
+15
+00:01:03,775 --> 00:01:05,912
+That is stigmergy by another name.
+
+16
+00:01:05,912 --> 00:01:11,087
+Now the most important lesson of the day, which comes straight from OpenAI's guide.
+
+17
+00:01:11,087 --> 00:01:12,962
+Start with one agent.
+
+18
+00:01:12,962 --> 00:01:17,875
+Give it good tools and clear instructions, and only split it when it really struggles.
+
+19
+00:01:17,875 --> 00:01:26,600
+Usually that's when its instructions have grown into a tangle of special cases, or when it keeps choosing the wrong tool because several tools look alike.
+
+20
+00:01:26,600 --> 00:01:28,850
+When you do split, you gain things.
+
+21
+00:01:28,850 --> 00:01:31,512
+Each sub-agent needs less context.
+
+22
+00:01:31,512 --> 00:01:34,375
+Simple subtasks can go to cheaper models.
+
+23
+00:01:34,375 --> 00:01:37,225
+Independent work can run in parallel.
+
+24
+00:01:37,225 --> 00:01:39,087
+But you also lose things.
+
+25
+00:01:39,087 --> 00:01:43,987
+Information gets dropped at every handoff, and a fixed plan can't adapt.
+
+26
+00:01:43,987 --> 00:01:53,350
+In one experiment from the CMU course, an agent that had to stick to its first plan succeeded about a quarter of the time, and letting it revise the plan helped a lot.
+
+27
+00:01:53,350 --> 00:01:56,912
+A good rule of thumb: the signal for a team is width.
+
+28
+00:01:56,912 --> 00:01:59,537
+Thirty papers to compare, not one.
+
+29
+00:01:59,537 --> 00:02:02,187
+Here's where the colony comparison fails.
+
+30
+00:02:02,187 --> 00:02:08,837
+A colony's coordination was shaped by millions of years of selection, and it survives losing workers.
+
+31
+00:02:08,837 --> 00:02:11,812
+Your topology was designed last Tuesday.
+
+32
+00:02:11,812 --> 00:02:16,250
+Every extra agent is another bill and another place to break.
+
+33
+00:02:16,250 --> 00:02:20,750
+And pheromone evaporates on its own, so stale trails fade.
+
+34
+00:02:20,750 --> 00:02:24,050
+A shared whiteboard does not fade unless you make it.
+
+35
+00:02:24,050 --> 00:02:29,275
+In the lab, you will put three papers you know well into a folder and build a small manager.
+
+36
+00:02:29,275 --> 00:02:38,212
+It sends each paper to its own summariser, running in parallel, checks their answers with ordinary code, and then asks for one synthesis.
+
+37
+00:02:38,212 --> 00:02:42,237
+Then you'll run a single agent on the same papers and compare.
+
+38
+00:02:42,237 --> 00:02:45,625
+Because you know these papers, you get to be the judge.
+
+39
+00:02:45,625 --> 00:02:48,525
+Pick your three papers, and let's build a colony.
+

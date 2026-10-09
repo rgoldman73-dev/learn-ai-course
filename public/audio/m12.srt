@@ -1,0 +1,208 @@
+1
+00:00:00,050 --> 00:00:02,212
+Welcome to Module Twelve.
+
+2
+00:00:02,212 --> 00:00:04,362
+A food chain is a line.
+
+3
+00:00:04,362 --> 00:00:07,387
+Grass, grasshopper, shrew, owl.
+
+4
+00:00:07,387 --> 00:00:09,987
+But you know that real communities are webs.
+
+5
+00:00:09,987 --> 00:00:13,625
+Several consumers feed on the same resource at once.
+
+6
+00:00:13,625 --> 00:00:15,612
+Flows split and merge.
+
+7
+00:00:15,612 --> 00:00:18,500
+One compartment's output is another's input.
+
+8
+00:00:18,500 --> 00:00:24,612
+And the moment you try to draw a web, you are forced to say exactly what is connected to what, and by which flow.
+
+9
+00:00:24,612 --> 00:00:28,762
+Yesterday you built a loop that makes one piece of work reliable.
+
+10
+00:00:28,762 --> 00:00:31,900
+Today you draw the web around many pieces.
+
+11
+00:00:31,900 --> 00:00:33,062
+What runs.
+
+12
+00:00:33,062 --> 00:00:34,875
+What runs at the same time.
+
+13
+00:00:34,875 --> 00:00:36,237
+What has to wait.
+
+14
+00:00:36,237 --> 00:00:38,025
+Where results come together.
+
+15
+00:00:38,025 --> 00:00:39,612
+And where they are checked.
+
+16
+00:00:39,612 --> 00:00:41,912
+Builders call this graph engineering.
+
+17
+00:00:41,912 --> 00:00:43,675
+There are only two parts.
+
+18
+00:00:43,675 --> 00:00:48,075
+A node is one bounded job, with one input and one output.
+
+19
+00:00:48,075 --> 00:00:50,487
+An edge is a real dependency.
+
+20
+00:00:50,487 --> 00:00:53,250
+This step's output feeds that step's input.
+
+21
+00:00:53,250 --> 00:00:56,912
+And here is the most useful question in today's module.
+
+22
+00:00:56,912 --> 00:01:03,275
+For every arrow in your workflow, ask: does the next step actually read the previous step's output?
+
+23
+00:01:03,275 --> 00:01:05,787
+Can you name the thing that crosses the arrow?
+
+24
+00:01:05,787 --> 00:01:08,662
+If you cannot, there is no real edge.
+
+25
+00:01:08,662 --> 00:01:13,650
+The second step was only waiting because of the order you happened to type the instructions.
+
+26
+00:01:13,650 --> 00:01:22,625
+One writer redrew a forty-step workflow this way, cut about a dozen fake arrows, and it ran far faster, with no change to the model at all.
+
+27
+00:01:22,625 --> 00:01:25,062
+The vocabulary of nodes is small.
+
+28
+00:01:25,062 --> 00:01:27,512
+A splitter cuts the work into pieces.
+
+29
+00:01:27,512 --> 00:01:32,112
+Workers each handle one piece, in their own separate context.
+
+30
+00:01:32,112 --> 00:01:39,487
+A plain code node merges, sorts and removes duplicates, because those jobs have one right answer and need no model at all.
+
+31
+00:01:39,487 --> 00:01:42,137
+And a gate decides what passes.
+
+32
+00:01:42,137 --> 00:01:45,012
+The gate brings today's most important lesson.
+
+33
+00:01:45,012 --> 00:01:47,437
+Do not let the worker grade its own work.
+
+34
+00:01:47,437 --> 00:01:49,887
+Models tend to favour their own writing.
+
+35
+00:01:49,887 --> 00:01:55,937
+So the checker must be separate, and it must start fresh, without seeing the worker's reasoning.
+
+36
+00:01:55,937 --> 00:01:58,862
+Even then, anchor it to something real.
+
+37
+00:01:58,862 --> 00:02:00,912
+A test that actually ran.
+
+38
+00:02:00,912 --> 00:02:02,562
+A rule written in code.
+
+39
+00:02:02,562 --> 00:02:05,600
+Finally, a good graph has two ways back.
+
+40
+00:02:05,600 --> 00:02:11,087
+A short one, which returns a single failed piece to the worker that made it, with the evidence.
+
+41
+00:02:11,087 --> 00:02:16,225
+And a long one, which turns a lesson into a rule for how the next run is split.
+
+42
+00:02:16,225 --> 00:02:18,600
+Almost nobody builds that second one.
+
+43
+00:02:18,600 --> 00:02:20,625
+Now, where does the metaphor fail?
+
+44
+00:02:20,625 --> 00:02:23,437
+Energy flows one way down a food chain.
+
+45
+00:02:23,437 --> 00:02:30,637
+In an agent graph, information flows backwards on purpose, and the learning edge rewrites the web itself.
+
+46
+00:02:30,637 --> 00:02:32,487
+Nothing in nature does that.
+
+47
+00:02:32,487 --> 00:02:35,450
+And a food web is discovered, not designed.
+
+48
+00:02:35,450 --> 00:02:39,200
+Draw your graph too early, and you can lock in your first wrong guess.
+
+49
+00:02:39,200 --> 00:02:46,600
+In today's lab you will build a quality-control graph for thirty invented field records, with ten faults you planted yourself.
+
+50
+00:02:46,600 --> 00:02:56,112
+Workers check batches in parallel, plain code merges them, rules and a fresh verifier form the gate, and a report scores which part caught what.
+
+51
+00:02:56,112 --> 00:02:59,275
+Then you add one learning edge, and run it again.
+
+52
+00:02:59,275 --> 00:03:02,025
+Open your terminal, and let's draw the web.
+

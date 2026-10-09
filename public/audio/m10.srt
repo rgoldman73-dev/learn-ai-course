@@ -1,0 +1,176 @@
+1
+00:00:00,050 --> 00:00:04,225
+Welcome to Module Ten, the last module of Unit Three.
+
+2
+00:00:04,225 --> 00:00:09,137
+Touch a hot stove, and your hand is already moving before you feel the pain.
+
+3
+00:00:09,137 --> 00:00:14,337
+A reflex arc in your spinal cord made that decision in a few thousandths of a second.
+
+4
+00:00:14,337 --> 00:00:16,562
+Your brain hears about it afterwards.
+
+5
+00:00:16,562 --> 00:00:19,200
+Nervous systems are layered like that.
+
+6
+00:00:19,200 --> 00:00:22,150
+Cheap, fast circuits for routine stimuli.
+
+7
+00:00:22,150 --> 00:00:25,212
+Expensive deliberation for everything else.
+
+8
+00:00:25,212 --> 00:00:27,887
+Right now, your agent has no reflexes.
+
+9
+00:00:27,887 --> 00:00:33,437
+Every decision, big or small, goes to the same model at the same price.
+
+10
+00:00:33,437 --> 00:00:36,450
+Today you give it a reflex layer, called a router.
+
+11
+00:00:36,450 --> 00:00:40,850
+Its job is to look at a task and decide which model it actually needs.
+
+12
+00:00:40,850 --> 00:00:46,900
+One team at LangChain did exactly this for their internal coding agent, because their bill kept climbing.
+
+13
+00:00:46,900 --> 00:00:52,325
+First they studied a week of real requests and found that difficulty varied enormously.
+
+14
+00:00:52,325 --> 00:00:57,875
+Then they picked three models, a fast one, a balanced one, and a strong one.
+
+15
+00:00:57,875 --> 00:00:59,675
+Then they wrote a short router.
+
+16
+00:00:59,675 --> 00:01:09,587
+A brief instruction, pick the least expensive model likely to finish the task, plus one line describing each tier, and a small classifier to make the call.
+
+17
+00:01:09,587 --> 00:01:11,450
+Then they tested it properly.
+
+18
+00:01:11,450 --> 00:01:16,362
+Half the work went through the router, and half always went to the strongest model.
+
+19
+00:01:16,362 --> 00:01:21,012
+The share of work that ended in an accepted change was essentially the same.
+
+20
+00:01:21,012 --> 00:01:24,987
+But the typical cost per task fell by almost two thirds.
+
+21
+00:01:24,987 --> 00:01:31,425
+And when they tried the opposite, sending everything to the cheapest model, engineers complained within a day.
+
+22
+00:01:31,425 --> 00:01:34,175
+Routing is not about using the cheap model.
+
+23
+00:01:34,175 --> 00:01:36,062
+It is about using the right one.
+
+24
+00:01:36,062 --> 00:01:37,800
+Two details matter.
+
+25
+00:01:37,800 --> 00:01:45,650
+The router decides once, at the start of a task, because switching models halfway through throws away the cache you learned about in Unit Two.
+
+26
+00:01:45,650 --> 00:01:49,225
+And the router has to be evaluated, like any other model.
+
+27
+00:01:49,225 --> 00:01:54,012
+That last point is where some of today's sources are refreshingly honest.
+
+28
+00:01:54,012 --> 00:01:57,550
+One builder ran a skill router quietly for a week.
+
+29
+00:01:57,550 --> 00:02:02,350
+Out of more than five hundred suggestions, only about one in twenty was used.
+
+30
+00:02:02,350 --> 00:02:03,587
+He removed it.
+
+31
+00:02:03,587 --> 00:02:10,725
+Another found that his routed helpers were cheaper than one setting, but more expensive than simply running a single strong agent.
+
+32
+00:02:10,725 --> 00:02:12,975
+A router is a hypothesis.
+
+33
+00:02:12,975 --> 00:02:15,587
+You have to test it against the right comparison.
+
+34
+00:02:15,587 --> 00:02:18,500
+And here is where the metaphor fails.
+
+35
+00:02:18,500 --> 00:02:25,862
+Reflexes were tuned by selection over millions of years, and when a reflex misfires, you usually notice.
+
+36
+00:02:25,862 --> 00:02:29,950
+A router is only as good as the examples and tests behind it.
+
+37
+00:02:29,950 --> 00:02:34,450
+And when it sends a hard task to a weak model, nothing flinches.
+
+38
+00:02:34,450 --> 00:02:37,700
+You just get a plausible, slightly worse answer.
+
+39
+00:02:37,700 --> 00:02:42,675
+In today's lab you will write twenty tasks and label how hard each one is.
+
+40
+00:02:42,675 --> 00:02:48,725
+You will build two routers, one from simple rules and one using the cheapest model, and score both.
+
+41
+00:02:48,725 --> 00:02:53,387
+Watch especially for under-routing, where a hard task is sent to a weak model.
+
+42
+00:02:53,387 --> 00:02:56,050
+Then you will wire the router into your agent.
+
+43
+00:02:56,050 --> 00:02:58,675
+That completes your Unit Three harness.
+
+44
+00:02:58,675 --> 00:03:01,562
+Open your terminal, and let's build a reflex.
+

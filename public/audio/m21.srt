@@ -1,0 +1,164 @@
+1
+00:00:00,050 --> 00:00:02,362
+Welcome to Module Twenty-One.
+
+2
+00:00:02,362 --> 00:00:06,525
+Yesterday's forager could only find food by an exact landmark.
+
+3
+00:00:06,525 --> 00:00:08,687
+Many animals do better than that.
+
+4
+00:00:08,687 --> 00:00:13,675
+A shearwater flying over open ocean can't see the krill beneath the surface.
+
+5
+00:00:13,675 --> 00:00:20,650
+But it can smell the plume of dimethyl sulphide that rises where plankton are being grazed, and it flies up the gradient.
+
+6
+00:00:20,650 --> 00:00:22,925
+It doesn't need an exact match.
+
+7
+00:00:22,925 --> 00:00:27,175
+It needs a signal that grows stronger as it gets closer to what it wants.
+
+8
+00:00:27,175 --> 00:00:30,187
+Embeddings give search that same kind of sense.
+
+9
+00:00:30,187 --> 00:00:31,550
+Here's the idea.
+
+10
+00:00:31,550 --> 00:00:37,450
+A small model turns every chunk of text into a point in a space with hundreds of dimensions.
+
+11
+00:00:37,450 --> 00:00:42,387
+It places those points so that passages with similar meanings end up close together.
+
+12
+00:00:42,387 --> 00:00:44,500
+Your question becomes a point too.
+
+13
+00:00:44,500 --> 00:00:50,537
+Searching then means finding the nearest chunks, even if they don't share a single word with your question.
+
+14
+00:00:50,537 --> 00:00:56,900
+Ask about an agent forgetting its earlier rules, and the passage about compaction can finally turn up.
+
+15
+00:00:56,900 --> 00:00:58,937
+These models can be small.
+
+16
+00:00:58,937 --> 00:01:03,800
+One announced this month runs on a laptop in about half a gigabyte of memory.
+
+17
+00:01:03,800 --> 00:01:10,550
+One practical warning from today's sources: choose your embedding model before you build the index, and stick with it.
+
+18
+00:01:10,550 --> 00:01:13,775
+Points made by one model mean nothing to another.
+
+19
+00:01:13,775 --> 00:01:17,200
+Switch models, and you have to re-embed everything.
+
+20
+00:01:17,200 --> 00:01:19,950
+So why not use embeddings alone?
+
+21
+00:01:19,950 --> 00:01:22,550
+Because each sense has blind spots.
+
+22
+00:01:22,550 --> 00:01:25,175
+Keyword search can't see synonyms.
+
+23
+00:01:25,175 --> 00:01:29,787
+Embeddings can blur exact names, numbers and identifiers.
+
+24
+00:01:29,787 --> 00:01:36,062
+And they find passages that are about the same topic, which is not the same as passages that answer your question.
+
+25
+00:01:36,062 --> 00:01:39,612
+The answer most production systems use is hybrid search.
+
+26
+00:01:39,612 --> 00:01:45,775
+Run both searches, and combine the two ranked lists with a simple method called reciprocal rank fusion.
+
+27
+00:01:45,775 --> 00:01:52,500
+It ignores the raw scores, which aren't comparable, and looks only at where each passage ranked in each list.
+
+28
+00:01:52,500 --> 00:01:55,762
+Something near the top of both lists rises to the top.
+
+29
+00:01:55,762 --> 00:01:58,462
+Here's where the smell metaphor breaks.
+
+30
+00:01:58,462 --> 00:02:01,762
+A scent gradient is anchored in real chemistry.
+
+31
+00:02:01,762 --> 00:02:04,337
+The plume really is stronger near the food.
+
+32
+00:02:04,337 --> 00:02:07,850
+Embedding similarity is learned from patterns in text.
+
+33
+00:02:07,850 --> 00:02:12,425
+Near means written about in similar ways, not true, and not useful.
+
+34
+00:02:12,425 --> 00:02:19,287
+A fluent passage full of the right words can sit closer to your question than the dry paragraph that actually has the answer.
+
+35
+00:02:19,287 --> 00:02:21,362
+The only way to know is to check.
+
+36
+00:02:21,362 --> 00:02:22,775
+So that's the lab.
+
+37
+00:02:22,775 --> 00:02:29,375
+You'll install a small, free embedding model, embed the course's source pack, and build a hybrid search.
+
+38
+00:02:29,375 --> 00:02:37,950
+Then you'll run yesterday's ten labelled questions through three searches, keywords, embeddings and the hybrid, and compare their precision at five.
+
+39
+00:02:37,950 --> 00:02:41,400
+Look question by question, not just at the average.
+
+40
+00:02:41,400 --> 00:02:44,312
+That's where you'll see each sense earning its keep.
+
+41
+00:02:44,312 --> 00:02:46,350
+Let's go and follow the scent.
+

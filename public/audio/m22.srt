@@ -1,0 +1,192 @@
+1
+00:00:00,050 --> 00:00:05,812
+Welcome to Module Twenty-Two, the last module of the unit on retrieval and memory.
+
+2
+00:00:05,812 --> 00:00:09,900
+Every field biologist learns this lesson the hard way.
+
+3
+00:00:09,900 --> 00:00:11,325
+You will not remember it.
+
+4
+00:00:11,325 --> 00:00:17,262
+Not the date, not the weather, not the strange behaviour you were sure you'd never forget.
+
+5
+00:00:17,262 --> 00:00:19,112
+So you write it in the notebook.
+
+6
+00:00:19,112 --> 00:00:25,287
+And the herbarium keeps the voucher specimen, with its label, long after the collector has retired.
+
+7
+00:00:25,287 --> 00:00:32,950
+External memory is what lets an expedition's knowledge outlive the expedition, and lets someone else check it, decades later.
+
+8
+00:00:32,950 --> 00:00:35,437
+Agents need exactly the same thing.
+
+9
+00:00:35,437 --> 00:00:38,212
+Think of agent memory in three layers.
+
+10
+00:00:38,212 --> 00:00:41,125
+The first is working memory, the context window.
+
+11
+00:00:41,125 --> 00:00:43,650
+Everything the model can attend to right now.
+
+12
+00:00:43,650 --> 00:00:49,712
+It's limited, and when it fills up, the model gets worse and starts forgetting your early instructions.
+
+13
+00:00:49,712 --> 00:00:52,262
+And when the session ends, it's gone.
+
+14
+00:00:52,262 --> 00:00:54,425
+The second layer is compaction.
+
+15
+00:00:54,425 --> 00:00:59,262
+When the window fills, the older part of the conversation is replaced by a summary.
+
+16
+00:00:59,262 --> 00:01:05,050
+That keeps the session going, but it loses detail, and it loses more every time it happens.
+
+17
+00:01:05,050 --> 00:01:07,637
+The CMU course tells a good story here.
+
+18
+00:01:07,637 --> 00:01:12,175
+One research group built a compaction method that looked perfect on a benchmark.
+
+19
+00:01:12,175 --> 00:01:19,100
+Then, in real use, their agent kept forgetting it had already opened a pull request, and opened the same one five times.
+
+20
+00:01:19,100 --> 00:01:22,000
+Benchmarks can hide memory failures.
+
+21
+00:01:22,000 --> 00:01:27,750
+The third layer is external memory: files and databases that survive between sessions.
+
+22
+00:01:27,750 --> 00:01:31,137
+The agent reads and writes them with its tools.
+
+23
+00:01:31,137 --> 00:01:34,162
+One of today's sources sums it up in a single line.
+
+24
+00:01:34,162 --> 00:01:36,925
+If it isn't in a file, it doesn't exist.
+
+25
+00:01:36,925 --> 00:01:41,950
+The people building second brains with Claude Code have converged on a simple design.
+
+26
+00:01:41,950 --> 00:01:43,525
+Plain text notes.
+
+27
+00:01:43,525 --> 00:01:46,587
+One topic per file, named for what's in it.
+
+28
+00:01:46,587 --> 00:01:48,425
+A few clear folders.
+
+29
+00:01:48,425 --> 00:01:53,675
+And one index file at the top that tells the agent where everything lives and how to behave.
+
+30
+00:01:53,675 --> 00:01:55,737
+Answer only from my notes.
+
+31
+00:01:55,737 --> 00:01:56,875
+Cite the note.
+
+32
+00:01:56,875 --> 00:01:59,662
+And if the answer isn't there, say so.
+
+33
+00:01:59,662 --> 00:02:01,825
+They also make big promises.
+
+34
+00:02:01,825 --> 00:02:03,187
+Perfect memory.
+
+35
+00:02:03,187 --> 00:02:05,762
+A system that gets smarter on its own.
+
+36
+00:02:05,762 --> 00:02:10,475
+Treat those as hypotheses, because here's where the herbarium metaphor fails.
+
+37
+00:02:10,475 --> 00:02:12,187
+A specimen is fixed.
+
+38
+00:02:12,187 --> 00:02:14,837
+Nobody can quietly re-press the plant.
+
+39
+00:02:14,837 --> 00:02:17,462
+Agent memory is rewritten by the agent.
+
+40
+00:02:17,462 --> 00:02:23,837
+Every time it files a note, summarises, or updates a fact, a model is deciding what to keep.
+
+41
+00:02:23,837 --> 00:02:30,625
+An early misreading can be stored, cited back to you as evidence, and reinforced every time it's found.
+
+42
+00:02:30,625 --> 00:02:35,162
+So keep the raw originals, never let the agent delete, and audit it.
+
+43
+00:02:35,162 --> 00:02:36,312
+That's the lab.
+
+44
+00:02:36,312 --> 00:02:47,437
+You'll build your capstone's field notebook, with a map file and two commands: one that files your raw notes into tidy, linked pages, and one that answers questions from them with citations.
+
+45
+00:02:47,437 --> 00:02:51,525
+Then you'll test its recall with ten questions you already know the answers to.
+
+46
+00:02:51,525 --> 00:02:53,925
+Two of them aren't covered by your notes at all.
+
+47
+00:02:53,925 --> 00:02:56,562
+The question is whether your notebook admits it.
+
+48
+00:02:56,562 --> 00:02:59,200
+Open the reading, and start your notebook.
+

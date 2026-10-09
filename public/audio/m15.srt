@@ -1,0 +1,156 @@
+1
+00:00:00,050 --> 00:00:02,275
+Welcome to Module Fifteen.
+
+2
+00:00:02,275 --> 00:00:06,412
+Social insects invented division of labour long before we did.
+
+3
+00:00:06,412 --> 00:00:08,937
+Nurses, foragers, guards.
+
+4
+00:00:08,937 --> 00:00:16,337
+Each does one job, with the tools its body gives it, and the colony gets far more done than the same number of generalists would.
+
+5
+00:00:16,337 --> 00:00:20,425
+There's a second idea from ecology I want you to hold on to today.
+
+6
+00:00:20,425 --> 00:00:23,300
+Predators keep prey populations honest.
+
+7
+00:00:23,300 --> 00:00:25,712
+The careless and the weak get culled.
+
+8
+00:00:25,712 --> 00:00:28,562
+A system with no predator slowly drifts.
+
+9
+00:00:28,562 --> 00:00:30,562
+Agents use both ideas.
+
+10
+00:00:30,562 --> 00:00:32,512
+The first is the subagent.
+
+11
+00:00:32,512 --> 00:00:36,425
+Think of it as a specialist worker with its own context window.
+
+12
+00:00:36,425 --> 00:00:41,237
+It gets a short brief, does one job, and hands back only its result.
+
+13
+00:00:41,237 --> 00:00:43,450
+That keeps your main conversation clean.
+
+14
+00:00:43,450 --> 00:00:46,462
+And crucially, you can restrict its tools.
+
+15
+00:00:46,462 --> 00:00:55,450
+A reviewer that can read files and run tests, but cannot edit anything, is a reviewer you can trust not to quietly fix things and call it a pass.
+
+16
+00:00:55,450 --> 00:00:58,900
+The second idea is the predator, the adversary.
+
+17
+00:00:58,900 --> 00:01:03,487
+Two of today's sources describe the same three moments when it should wake up.
+
+18
+00:01:03,487 --> 00:01:05,487
+Before a plan is locked in.
+
+19
+00:01:05,487 --> 00:01:12,250
+When the same error comes back twice, because that is usually a sign you're hiding a symptom instead of fixing a cause.
+
+20
+00:01:12,250 --> 00:01:14,912
+And before anyone says the word done.
+
+21
+00:01:14,912 --> 00:01:21,287
+Claude Code can also run whole teams, where a lead coordinates several sessions that message each other.
+
+22
+00:01:21,287 --> 00:01:24,237
+The documentation is honest about the price.
+
+23
+00:01:24,237 --> 00:01:34,362
+Teams use far more tokens, they suit research, review and debugging with competing hypotheses, and three focused teammates often beat five scattered ones.
+
+24
+00:01:34,362 --> 00:01:35,787
+Now the trap.
+
+25
+00:01:35,787 --> 00:01:40,362
+If you put four reviewers in one shared conversation, they converge.
+
+26
+00:01:40,362 --> 00:01:45,912
+The first one writes a finding, the others read it, and all four reports say the same thing.
+
+27
+00:01:45,912 --> 00:01:50,925
+One of our sources calls this paying four times for one opinion with three echoes.
+
+28
+00:01:50,925 --> 00:01:55,650
+The fix is to give each reviewer its own context and a different lens.
+
+29
+00:01:55,650 --> 00:01:59,137
+And this is exactly where the caste metaphor breaks.
+
+30
+00:01:59,137 --> 00:02:05,225
+Real castes differ in genes, age and experience, so their mistakes are partly independent.
+
+31
+00:02:05,225 --> 00:02:10,600
+Cloned agents share the same model and the same training, so they share the same blind spots.
+
+32
+00:02:10,600 --> 00:02:13,112
+If you want diversity, you have to design it in.
+
+33
+00:02:13,112 --> 00:02:22,512
+In the lab, you'll build a read-only reviewer for your field data cleaning code, with three lenses: data meaning, code correctness and provenance.
+
+34
+00:02:22,512 --> 00:02:25,637
+Then you'll plant a bug that any ecologist would hate.
+
+35
+00:02:25,637 --> 00:02:30,237
+You'll ask the main agent to quietly drop every row where the count is zero.
+
+36
+00:02:30,237 --> 00:02:32,587
+A zero is not missing data.
+
+37
+00:02:32,587 --> 00:02:34,975
+It's an absence, and it matters.
+
+38
+00:02:34,975 --> 00:02:37,150
+Let's see whether your predator catches it.
+
+39
+00:02:37,150 --> 00:02:40,137
+Open the reading, then go build your reviewer.
+

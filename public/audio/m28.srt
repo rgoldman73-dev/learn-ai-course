@@ -1,0 +1,156 @@
+1
+00:00:00,050 --> 00:00:02,275
+Welcome to Module Twenty-Eight.
+
+2
+00:00:02,275 --> 00:00:04,337
+Yesterday was imitation.
+
+3
+00:00:04,337 --> 00:00:05,750
+Copy the parent.
+
+4
+00:00:05,750 --> 00:00:08,062
+Today is selection on behaviour.
+
+5
+00:00:08,062 --> 00:00:14,537
+An individual tries something, the environment scores the outcome, and behaviours that pay off become more common.
+
+6
+00:00:14,537 --> 00:00:20,250
+No teacher needed, which means behaviour can go beyond anything a teacher ever showed.
+
+7
+00:00:20,250 --> 00:00:22,262
+That's reinforcement learning.
+
+8
+00:00:22,262 --> 00:00:24,325
+The model is called the policy.
+
+9
+00:00:24,325 --> 00:00:30,012
+It plays out a whole episode, which we call a rollout: act, observe, act again.
+
+10
+00:00:30,012 --> 00:00:34,275
+At the end, a reward, one number, says how well it went.
+
+11
+00:00:34,275 --> 00:00:39,837
+Then the policy is nudged so that actions from better-than-expected rollouts become more likely.
+
+12
+00:00:39,837 --> 00:00:42,512
+Better than expected is the key phrase.
+
+13
+00:00:42,512 --> 00:00:44,662
+A lecture in this pack shows why.
+
+14
+00:00:44,662 --> 00:00:51,350
+Raw rewards are noisy, so you compare each rollout with a baseline, a sense of what the policy usually gets.
+
+15
+00:00:51,350 --> 00:00:55,125
+One popular method gets that baseline very simply.
+
+16
+00:00:55,125 --> 00:00:59,912
+It plays the same task about eight times and uses the average reward of the group.
+
+17
+00:00:59,912 --> 00:01:02,800
+Rollouts above the average are reinforced.
+
+18
+00:01:02,800 --> 00:01:05,200
+Rollouts below it are discouraged.
+
+19
+00:01:05,200 --> 00:01:09,237
+There's a catch you'll recognise from selection in small populations.
+
+20
+00:01:09,237 --> 00:01:13,650
+If every rollout in the group fails, there's nothing to select between.
+
+21
+00:01:13,650 --> 00:01:16,412
+No variation, no response.
+
+22
+00:01:16,412 --> 00:01:21,337
+Reinforcement learning can only amplify what the model can already sometimes do.
+
+23
+00:01:21,337 --> 00:01:26,650
+So people start with easier tasks, or give hints, or teach by imitation first.
+
+24
+00:01:26,650 --> 00:01:28,362
+And now the dark side.
+
+25
+00:01:28,362 --> 00:01:30,837
+Selection acts on whatever is measured.
+
+26
+00:01:30,837 --> 00:01:36,050
+Select hens for eggs per cage, and you may select the hen that bullies her neighbours.
+
+27
+00:01:36,050 --> 00:01:41,725
+In machine learning this is called reward hacking, and it's Goodhart's law with a training loop attached.
+
+28
+00:01:41,725 --> 00:01:48,037
+The pack includes an audit of coding agents that looked successful but had often just looked up the known fix.
+
+29
+00:01:48,037 --> 00:01:51,675
+When the shortcuts were blocked, their scores dropped sharply.
+
+30
+00:01:51,675 --> 00:01:58,387
+One research team puts the lesson plainly: verification has to keep evolving alongside the model it checks.
+
+31
+00:01:58,387 --> 00:02:01,825
+That's the Red Queen again, now inside training.
+
+32
+00:02:01,825 --> 00:02:05,950
+In the lab, your coding agent will build the guessing game from the lecture.
+
+33
+00:02:05,950 --> 00:02:10,325
+A hidden number from one to sixteen, four guesses, higher or lower.
+
+34
+00:02:10,325 --> 00:02:13,000
+A tiny policy will learn to play it.
+
+35
+00:02:13,000 --> 00:02:16,262
+You'll compare learning with and without a baseline.
+
+36
+00:02:16,262 --> 00:02:24,712
+Then you'll plant a bug in the reward checker, so that one illegal guess also counts as correct, and you'll watch the reward climb while the real success rate falls.
+
+37
+00:02:24,712 --> 00:02:34,912
+Finally, you'll package the small decision model from the last two modules into one function your capstone can call, with a gate that only lets it act if it passes your held-out test.
+
+38
+00:02:34,912 --> 00:02:36,662
+Start with Part A.
+
+39
+00:02:36,662 --> 00:02:40,900
+Before you run anything, predict what the cheating policy's curves will look like.
+

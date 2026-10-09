@@ -1,0 +1,148 @@
+1
+00:00:00,050 --> 00:00:02,512
+Welcome to Module Twenty-Seven.
+
+2
+00:00:02,512 --> 00:00:05,850
+A breeder never designs a new animal from scratch.
+
+3
+00:00:05,850 --> 00:00:12,525
+They start from a stock that already has most of what they want, and they shift it, carefully, towards one trait.
+
+4
+00:00:12,525 --> 00:00:17,362
+And much of what a young animal knows, it never got from selection at all.
+
+5
+00:00:17,362 --> 00:00:19,825
+It learned by imitating its parents.
+
+6
+00:00:19,825 --> 00:00:21,275
+Song dialects.
+
+7
+00:00:21,275 --> 00:00:22,675
+Foraging tricks.
+
+8
+00:00:22,675 --> 00:00:24,225
+Migration routes.
+
+9
+00:00:24,225 --> 00:00:31,300
+Cultural transmission is fast and faithful, and it passes on the parents' mistakes right along with their skills.
+
+10
+00:00:31,300 --> 00:00:35,125
+Supervised fine-tuning is cultural transmission for a model.
+
+11
+00:00:35,125 --> 00:00:40,150
+You show it examples of the behaviour you want, and you nudge its weights so it imitates them.
+
+12
+00:00:40,150 --> 00:00:44,850
+A lecture in this pack describes it in one phrase: imitation learning.
+
+13
+00:00:44,850 --> 00:00:51,937
+The model is graded on every word of the example answers, and over many examples it learns to produce answers like them.
+
+14
+00:00:51,937 --> 00:00:54,362
+The lecture also lists the catches.
+
+15
+00:00:54,362 --> 00:00:56,762
+A student can't outgrow its teacher.
+
+16
+00:00:56,762 --> 00:01:00,312
+Wrong examples are learned as faithfully as right ones.
+
+17
+00:01:00,312 --> 00:01:03,700
+Even a successful example can carry bad habits.
+
+18
+00:01:03,700 --> 00:01:09,475
+Adding more of the same examples stops helping after a while, while new kinds of examples keep helping.
+
+19
+00:01:09,475 --> 00:01:13,612
+And a falling training loss is not the same as a better model.
+
+20
+00:01:13,612 --> 00:01:15,612
+You still need your held-out eval.
+
+21
+00:01:15,612 --> 00:01:19,725
+Then there's a technique called LoRA, which is the breeder's restraint.
+
+22
+00:01:19,725 --> 00:01:25,050
+Instead of changing the whole model, you freeze it, and you train a small add-on that sits beside it.
+
+23
+00:01:25,050 --> 00:01:30,937
+The add-on is tiny, so it trains on a free graphics card and can be saved and swapped on its own.
+
+24
+00:01:30,937 --> 00:01:35,250
+Several projects in the pack use this to build what they call decision models.
+
+25
+00:01:35,250 --> 00:01:42,062
+Instead of writing an answer in words, the model scores the options you give it, and returns a choice with a probability.
+
+26
+00:01:42,062 --> 00:01:49,112
+One small model went from about chance to around three quarters correct on its tests after a single short round of training.
+
+27
+00:01:49,112 --> 00:01:52,075
+Another project warns that where you start matters.
+
+28
+00:01:52,075 --> 00:01:59,062
+Training on a narrow set of examples from the bare base model wiped out much of what a ready-made decision model already knew.
+
+29
+00:01:59,062 --> 00:02:01,175
+Here's where the metaphor breaks.
+
+30
+00:02:01,175 --> 00:02:04,662
+Breeding selects among variation that already exists.
+
+31
+00:02:04,662 --> 00:02:06,687
+Fine-tuning doesn't select.
+
+32
+00:02:06,687 --> 00:02:07,950
+It copies.
+
+33
+00:02:07,950 --> 00:02:11,650
+If your labels are wrong, the model learns them perfectly.
+
+34
+00:02:11,650 --> 00:02:15,350
+In the lab, you'll do this for your own study-design task.
+
+35
+00:02:15,350 --> 00:02:25,225
+Your coding agent will generate a few hundred practice examples, filter them with a second blind labeller, and build a free notebook that trains a small model in the cloud.
+
+36
+00:02:25,225 --> 00:02:32,200
+Then you'll compare the untrained and trained models on your human-checked items from Module Twenty-Three, and nowhere else.
+
+37
+00:02:32,200 --> 00:02:37,600
+Start with Part A. Decide your rule for training data and test data, and write down why.
+

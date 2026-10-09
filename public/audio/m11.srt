@@ -1,0 +1,240 @@
+1
+00:00:00,050 --> 00:00:04,600
+Welcome to Module Eleven, and to Unit Four: trophic flows.
+
+2
+00:00:04,600 --> 00:00:06,500
+Think about homeostasis.
+
+3
+00:00:06,500 --> 00:00:08,187
+Blood sugar rises.
+
+4
+00:00:08,187 --> 00:00:10,837
+A sensor in the pancreas notices.
+
+5
+00:00:10,837 --> 00:00:14,625
+Insulin is released, and sugar falls back toward its set point.
+
+6
+00:00:14,625 --> 00:00:16,650
+Then the response eases off.
+
+7
+00:00:16,650 --> 00:00:20,837
+Density-dependent regulation in a population has the same shape.
+
+8
+00:00:20,837 --> 00:00:23,712
+Crowding feeds back on births and deaths.
+
+9
+00:00:23,712 --> 00:00:27,600
+In both cases, the clever part is not the response.
+
+10
+00:00:27,600 --> 00:00:34,287
+It is the sensor, the thing that compares where you are with where you should be, and the rule that says, stop, we are there.
+
+11
+00:00:34,287 --> 00:00:36,912
+Today you build that kind of loop for an agent.
+
+12
+00:00:36,912 --> 00:00:39,900
+One of today's sources puts it in a single line.
+
+13
+00:00:39,900 --> 00:00:41,962
+A loop is a check that can fail.
+
+14
+00:00:41,962 --> 00:00:43,325
+Produce some work.
+
+15
+00:00:43,325 --> 00:00:44,200
+Check it.
+
+16
+00:00:44,200 --> 00:00:45,300
+Correct it.
+
+17
+00:00:45,300 --> 00:00:47,475
+Repeat until the check passes.
+
+18
+00:00:47,475 --> 00:00:49,562
+And the check is everything.
+
+19
+00:00:49,562 --> 00:00:53,900
+If nothing can fail the work while you are out of the room, you do not have a loop.
+
+20
+00:00:53,900 --> 00:00:55,087
+You have a timer.
+
+21
+00:00:55,087 --> 00:00:56,887
+So what counts as a check?
+
+22
+00:00:56,887 --> 00:00:58,362
+The tests pass.
+
+23
+00:00:58,362 --> 00:01:00,250
+Every claim has a source.
+
+24
+00:01:00,250 --> 00:01:03,150
+The change touches only the files in the plan.
+
+25
+00:01:03,150 --> 00:01:05,125
+And what does not count?
+
+26
+00:01:05,125 --> 00:01:06,500
+The output looks good.
+
+27
+00:01:06,500 --> 00:01:08,475
+The model says it is confident.
+
+28
+00:01:08,475 --> 00:01:11,150
+Even, no errors were raised.
+
+29
+00:01:11,150 --> 00:01:13,575
+That last one fools careful people.
+
+30
+00:01:13,575 --> 00:01:16,875
+Plenty of wrong answers run without a single error.
+
+31
+00:01:16,875 --> 00:01:18,850
+The rule to remember is this.
+
+32
+00:01:18,850 --> 00:01:21,575
+Loop on evidence, not on confidence.
+
+33
+00:01:21,575 --> 00:01:26,275
+Another guide turns this into a short contract you write before you automate anything.
+
+34
+00:01:26,275 --> 00:01:27,662
+Six lines.
+
+35
+00:01:27,662 --> 00:01:28,525
+The job.
+
+36
+00:01:28,525 --> 00:01:29,825
+What triggers it.
+
+37
+00:01:29,825 --> 00:01:32,175
+Where it keeps its notes between runs.
+
+38
+00:01:32,175 --> 00:01:34,425
+The command that verifies the work.
+
+39
+00:01:34,425 --> 00:01:35,812
+When it must stop.
+
+40
+00:01:35,812 --> 00:01:38,375
+And what it may never do without a human.
+
+41
+00:01:38,375 --> 00:01:44,187
+If you cannot write the verifier as an actual command, the task is not ready to run on its own.
+
+42
+00:01:44,187 --> 00:01:46,100
+And give the loop a way to give up.
+
+43
+00:01:46,100 --> 00:01:48,100
+Three attempts is a good default.
+
+44
+00:01:48,100 --> 00:01:54,037
+If the work fails three times, the problem is usually in the plan, and the loop cannot see the plan.
+
+45
+00:01:54,037 --> 00:01:57,012
+So it should stop, and hand the evidence to you.
+
+46
+00:01:57,012 --> 00:01:59,300
+Now, where does the metaphor fail?
+
+47
+00:01:59,300 --> 00:02:04,275
+Biological feedback is continuous, cheap, and refined by selection.
+
+48
+00:02:04,275 --> 00:02:06,775
+Every ancestor tested that sensor.
+
+49
+00:02:06,775 --> 00:02:12,262
+Your agent's loop is paid for on every turn, and nobody has tested your sensor but you.
+
+50
+00:02:12,262 --> 00:02:15,525
+If your check is broken, the loop can run forever.
+
+51
+00:02:15,525 --> 00:02:18,262
+Or worse, it can succeed forever.
+
+52
+00:02:18,262 --> 00:02:20,575
+A test that always passes.
+
+53
+00:02:20,575 --> 00:02:24,525
+Or an agent that quietly edits the test so that it passes.
+
+54
+00:02:24,525 --> 00:02:29,687
+That is the same problem as rewarding the wrong thing in evolution, now in your terminal.
+
+55
+00:02:29,687 --> 00:02:33,350
+Biology rarely lets the effector rewrite the sensor.
+
+56
+00:02:33,350 --> 00:02:34,962
+Your loop must forbid it.
+
+57
+00:02:34,962 --> 00:02:41,987
+In today's lab you will plant three bugs in a small diversity-index script, with tests whose answers you can check in your head.
+
+58
+00:02:41,987 --> 00:02:51,262
+Then you will build a loop that calls your coding agent to fix the script, guards the tests against tampering, logs every attempt, and stops after three tries.
+
+59
+00:02:51,262 --> 00:02:56,700
+Finally, you will give it a test that can never pass, and make sure it gives up gracefully.
+
+60
+00:02:56,700 --> 00:02:59,537
+Open your terminal, and let's close the loop.
+

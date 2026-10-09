@@ -1,0 +1,212 @@
+1
+00:00:00,050 --> 00:00:05,075
+Welcome to Module Seven, and to Unit Three: building an organism.
+
+2
+00:00:05,075 --> 00:00:08,162
+A genome, on its own, does nothing.
+
+3
+00:00:08,162 --> 00:00:09,350
+It needs a body.
+
+4
+00:00:09,350 --> 00:00:11,525
+Sense organs to take in the world.
+
+5
+00:00:11,525 --> 00:00:12,975
+Limbs to act on it.
+
+6
+00:00:12,975 --> 00:00:15,625
+A metabolism that keeps the cycle going.
+
+7
+00:00:15,625 --> 00:00:18,837
+An immune system that rejects what is dangerous.
+
+8
+00:00:18,837 --> 00:00:21,887
+And some way to remember what happened yesterday.
+
+9
+00:00:21,887 --> 00:00:25,000
+In the first unit, you saw how a model is trained.
+
+10
+00:00:25,000 --> 00:00:27,537
+Those trained weights are the genome.
+
+11
+00:00:27,537 --> 00:00:31,050
+Today we look at the body, which builders call the harness.
+
+12
+00:00:31,050 --> 00:00:34,362
+The formula you will see again and again is simple.
+
+13
+00:00:34,362 --> 00:00:36,975
+An agent is a model plus a harness.
+
+14
+00:00:36,975 --> 00:00:38,925
+Here is why that matters.
+
+15
+00:00:38,925 --> 00:00:41,562
+The model itself only does one thing.
+
+16
+00:00:41,562 --> 00:00:44,050
+Text goes in, text comes out.
+
+17
+00:00:44,050 --> 00:00:45,762
+It cannot open a file.
+
+18
+00:00:45,762 --> 00:00:47,525
+It cannot run a command.
+
+19
+00:00:47,525 --> 00:00:49,412
+It cannot remember last week.
+
+20
+00:00:49,412 --> 00:00:52,987
+Every one of those abilities comes from the harness wrapped around it.
+
+21
+00:00:52,987 --> 00:00:57,400
+The heart of every harness is a loop, and it really is that simple.
+
+22
+00:00:57,400 --> 00:01:01,062
+Send the model the task and everything that has happened so far.
+
+23
+00:01:01,062 --> 00:01:05,225
+The model either asks to use a tool, or gives a final answer.
+
+24
+00:01:05,225 --> 00:01:11,262
+If it asks for a tool, the harness runs it, adds the result to the history, and asks again.
+
+25
+00:01:11,262 --> 00:01:16,762
+Round and round, until the model stops asking, or the harness says enough.
+
+26
+00:01:16,762 --> 00:01:23,812
+A team of researchers took apart the source code of eleven real coding agents, including Claude Code and Codex.
+
+27
+00:01:23,812 --> 00:01:27,887
+They found that every single one is built from the same seven parts.
+
+28
+00:01:27,887 --> 00:01:28,750
+The loop.
+
+29
+00:01:28,750 --> 00:01:30,500
+The connection to the model.
+
+30
+00:01:30,500 --> 00:01:31,687
+The tools.
+
+31
+00:01:31,687 --> 00:01:33,512
+Memory and context.
+
+32
+00:01:33,512 --> 00:01:35,712
+Safety and permissions.
+
+33
+00:01:35,712 --> 00:01:37,950
+The ability to start helper agents.
+
+34
+00:01:37,950 --> 00:01:41,975
+And ways to extend it, with things like skills and plugins.
+
+35
+00:01:41,975 --> 00:01:45,212
+The smallest one is about a hundred lines of code.
+
+36
+00:01:45,212 --> 00:01:47,250
+The biggest is enormous.
+
+37
+00:01:47,250 --> 00:01:52,775
+And here is the surprise: on benchmarks, the tiny one does about as well.
+
+38
+00:01:52,775 --> 00:01:56,650
+What the big ones buy is safety, recovery, and control.
+
+39
+00:01:56,650 --> 00:01:59,750
+This anatomy is a powerful diagnostic tool.
+
+40
+00:01:59,750 --> 00:02:04,000
+If your agent keeps redoing yesterday's work, it is missing memory.
+
+41
+00:02:04,000 --> 00:02:07,250
+If it guesses your conventions, it is missing context.
+
+42
+00:02:07,250 --> 00:02:11,575
+If it hands you broken work and calls it finished, it is missing verification.
+
+43
+00:02:11,575 --> 00:02:14,487
+Fix the missing layer before you blame the model.
+
+44
+00:02:14,487 --> 00:02:16,550
+And where does the metaphor fail?
+
+45
+00:02:16,550 --> 00:02:18,637
+A body grows from its genome.
+
+46
+00:02:18,637 --> 00:02:22,250
+The two evolved together and cannot be pulled apart.
+
+47
+00:02:22,250 --> 00:02:26,737
+A harness is built separately, and you can swap it under the same model.
+
+48
+00:02:26,737 --> 00:02:33,575
+One team moved their agent from the top thirty to the top five on a public benchmark by changing only the harness.
+
+49
+00:02:33,575 --> 00:02:38,400
+Imagine moving a genome into a new body and watching it run faster.
+
+50
+00:02:38,400 --> 00:02:46,900
+In today's lab, you will ask your own coding agent to describe its own body, part by part, and to admit which parts it is guessing about.
+
+51
+00:02:46,900 --> 00:02:49,800
+You will save that as a blueprint in your capstone.
+
+52
+00:02:49,800 --> 00:02:52,412
+Tomorrow, you build a body of your own.
+
+53
+00:02:52,412 --> 00:02:54,925
+Open your terminal, and let's dissect.
+

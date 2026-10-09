@@ -1,0 +1,144 @@
+1
+00:00:00,050 --> 00:00:02,500
+Welcome to Module Twenty-Nine.
+
+2
+00:00:02,500 --> 00:00:04,100
+This one is optional.
+
+3
+00:00:04,100 --> 00:00:07,400
+It's a bridge between this course and your robotics course.
+
+4
+00:00:07,400 --> 00:00:10,100
+You know the reciprocal transplant experiment.
+
+5
+00:00:10,100 --> 00:00:14,087
+Move each population into the other's site and measure fitness.
+
+6
+00:00:14,087 --> 00:00:19,262
+If a population does well at home but poorly away, you've found local adaptation.
+
+7
+00:00:19,262 --> 00:00:22,150
+Home performance didn't predict performance elsewhere.
+
+8
+00:00:22,150 --> 00:00:24,950
+Robot learning lives on exactly that question.
+
+9
+00:00:24,950 --> 00:00:31,637
+Controllers are developed in simulation, where trials are cheap, safe and endlessly repeatable.
+
+10
+00:00:31,637 --> 00:00:37,987
+Then they're transplanted to a real robot, where friction, weights, cameras and cables are all a little different.
+
+11
+00:00:37,987 --> 00:00:41,462
+The drop in performance has a name: the sim-to-real gap.
+
+12
+00:00:41,462 --> 00:00:45,287
+Coding agents are now working on both sides of that transplant.
+
+13
+00:00:45,287 --> 00:00:48,650
+The best source in the pack is a paper called SimEX.
+
+14
+00:00:48,650 --> 00:00:51,937
+It points out two ways that agents fail with robots.
+
+15
+00:00:51,937 --> 00:00:58,600
+If an agent writes robot code in one go, it has to guess things it can't know, like exactly where the camera is.
+
+16
+00:00:58,600 --> 00:01:05,737
+If it learns by trial and error on the real robot, every attempt costs robot time and risks a collision.
+
+17
+00:01:05,737 --> 00:01:09,700
+So SimEX uses simulation as the agent's laboratory.
+
+18
+00:01:09,700 --> 00:01:12,637
+First, the agent explores in simulation.
+
+19
+00:01:12,637 --> 00:01:22,175
+It invents its own test tasks, finds a weakness, and improves a small toolbox of code, along with a notes file of what it has learned and where its limits are.
+
+20
+00:01:22,175 --> 00:01:28,362
+Several independent runs explore in parallel and share ideas, a bit like an island model.
+
+21
+00:01:28,362 --> 00:01:33,200
+Then comes a tiny real-world phase, about ten minutes of robot time per task.
+
+22
+00:01:33,200 --> 00:01:39,137
+Each real failure is used to correct the simulator and to test fixes before the next real attempt.
+
+23
+00:01:39,137 --> 00:01:46,837
+With that, the paper reports twenty-six successes out of thirty real trials, where the best comparison method managed three.
+
+24
+00:01:46,837 --> 00:01:49,600
+The authors' key insight is worth keeping.
+
+25
+00:01:49,600 --> 00:01:57,462
+The simulator only has to get the physics roughly right, because what transfers is knowledge and procedure, not one finely tuned policy.
+
+26
+00:01:57,462 --> 00:02:01,587
+A second source asks which data actually teaches a robot.
+
+27
+00:02:01,587 --> 00:02:08,137
+Its answer: only data where the robot's own policy is acting contains the robot's own mistakes.
+
+28
+00:02:08,137 --> 00:02:12,825
+Human demonstrations, however good, can't show you how your policy fails.
+
+29
+00:02:12,825 --> 00:02:14,900
+Here's where the metaphor breaks.
+
+30
+00:02:14,900 --> 00:02:17,700
+Transplanted organisms keep adapting.
+
+31
+00:02:17,700 --> 00:02:20,475
+A controller trained in simulation doesn't.
+
+32
+00:02:20,475 --> 00:02:29,775
+It carries a fixed gap to a world it never saw, and it may even exploit errors in your simulator, the same way a policy exploits a buggy reward.
+
+33
+00:02:29,775 --> 00:02:33,212
+In the lab, you'll run your own transplant on your laptop.
+
+34
+00:02:33,212 --> 00:02:41,825
+Your coding agent builds a two-joint arm in a free physics simulator, tunes a controller at home, and tests it on a hundred new targets.
+
+35
+00:02:41,825 --> 00:02:47,212
+Then it moves the controller into a perturbed world and gives it five trials to adapt.
+
+36
+00:02:47,212 --> 00:02:53,700
+Start with Part A. Choose three physical changes for your away site, and predict which will hurt most.
+

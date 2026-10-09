@@ -1,0 +1,160 @@
+1
+00:00:00,050 --> 00:00:05,187
+Welcome to Module Twenty-Three, and to Unit Eight: fitness assays.
+
+2
+00:00:05,187 --> 00:00:09,525
+Think about the last time you wanted to know whether two genotypes truly differed.
+
+3
+00:00:09,525 --> 00:00:13,575
+You didn't trust a survey of wild plants growing in different places.
+
+4
+00:00:13,575 --> 00:00:16,687
+You grew them side by side in a common garden.
+
+5
+00:00:16,687 --> 00:00:20,112
+Same soil, same water, same season.
+
+6
+00:00:20,112 --> 00:00:21,687
+Replicated plots.
+
+7
+00:00:21,687 --> 00:00:25,250
+And a fitness measure you fixed before the first seed went in.
+
+8
+00:00:25,250 --> 00:00:28,687
+An eval is the common garden for an AI system.
+
+9
+00:00:28,687 --> 00:00:32,237
+You hold the tasks, the grader and the setup constant.
+
+10
+00:00:32,237 --> 00:00:36,562
+You change one thing, maybe a prompt, a model or a skill file.
+
+11
+00:00:36,562 --> 00:00:37,875
+Then you measure.
+
+12
+00:00:37,875 --> 00:00:42,412
+Until now, almost everything you have built in this course has been judged by eye.
+
+13
+00:00:42,412 --> 00:00:45,025
+From today, it gets an assay.
+
+14
+00:00:45,025 --> 00:00:49,425
+Anthropic's guide to eval design gives four properties of a good one.
+
+15
+00:00:49,425 --> 00:00:53,812
+The tasks should look like your real work, not like whatever was easy to write.
+
+16
+00:00:53,812 --> 00:00:56,125
+Stronger models should score higher.
+
+17
+00:00:56,125 --> 00:01:00,100
+There should be headroom, so the best system still misses some items.
+
+18
+00:01:00,100 --> 00:01:03,275
+And the score should not jump around from run to run.
+
+19
+00:01:03,275 --> 00:01:06,375
+There is a sampling trap here that you will recognise.
+
+20
+00:01:06,375 --> 00:01:13,312
+If you build your test set from the cases today's model gets wrong, you are sampling the valleys of one model's abilities.
+
+21
+00:01:13,312 --> 00:01:18,425
+Your eval ends up describing that model's weak spots, not what is hard in your field.
+
+22
+00:01:18,425 --> 00:01:24,637
+So choose hard cases because you, the expert, judge them hard, and be able to say why.
+
+23
+00:01:24,637 --> 00:01:26,437
+Then comes hill-climbing.
+
+24
+00:01:26,437 --> 00:01:30,162
+Change one thing, re-run, keep it if the score improves.
+
+25
+00:01:30,162 --> 00:01:32,612
+It is the same search you met on day one.
+
+26
+00:01:32,612 --> 00:01:35,125
+But now the optimiser can overfit.
+
+27
+00:01:35,125 --> 00:01:38,825
+It can tune itself to the quirks of your particular test items.
+
+28
+00:01:38,825 --> 00:01:41,175
+The defence is a held-out split.
+
+29
+00:01:41,175 --> 00:01:46,262
+One set of items the optimiser may study, and another it never sees.
+
+30
+00:01:46,262 --> 00:01:51,487
+If the training score rises while the held-out score stays flat, you revert the change.
+
+31
+00:01:51,487 --> 00:01:53,312
+And remember noise.
+
+32
+00:01:53,312 --> 00:01:57,775
+With ten held-out items, one item is ten percentage points.
+
+33
+00:01:57,775 --> 00:02:00,412
+A small gain may be nothing but chance.
+
+34
+00:02:00,412 --> 00:02:05,325
+Report a confidence interval, and only trust improvements bigger than your noise.
+
+35
+00:02:05,325 --> 00:02:14,325
+In the lab you will write eight study descriptions from your own field, labelled by design: experiment, observational, model or synthesis.
+
+36
+00:02:14,325 --> 00:02:25,437
+Your coding agent will add more, you will check every label, and then it will run three careful rounds of hill-climbing on a prompt, with a train and test split and intervals on every score.
+
+37
+00:02:25,437 --> 00:02:26,750
+Keep that folder.
+
+38
+00:02:26,750 --> 00:02:31,750
+It comes back in the next two modules, and again when you fine-tune your own small model.
+
+39
+00:02:31,750 --> 00:02:33,987
+Start with Part A on your phone.
+
+40
+00:02:33,987 --> 00:02:38,800
+Write your eight items, and for each tricky one, write down why it is hard.
+

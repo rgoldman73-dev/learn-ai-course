@@ -1,0 +1,156 @@
+1
+00:00:00,050 --> 00:00:02,450
+Welcome to Module Twenty-Five.
+
+2
+00:00:02,450 --> 00:00:06,537
+"It takes all the running you can do, to keep in the same place."
+
+3
+00:00:06,537 --> 00:00:11,050
+You know why evolutionary biologists borrowed that line from the Red Queen.
+
+4
+00:00:11,050 --> 00:00:16,000
+Hosts and parasites, predators and prey, keep each other honest.
+
+5
+00:00:16,000 --> 00:00:20,587
+Take the predators away, and the prey slowly lose their vigilance.
+
+6
+00:00:20,587 --> 00:00:23,475
+A defence that is never tested decays.
+
+7
+00:00:23,475 --> 00:00:25,712
+AI systems need opponents too.
+
+8
+00:00:25,712 --> 00:00:29,175
+And today's rule is the most important one in this unit.
+
+9
+00:00:29,175 --> 00:00:32,300
+Never let the generator grade its own homework.
+
+10
+00:00:32,300 --> 00:00:33,550
+Here is why.
+
+11
+00:00:33,550 --> 00:00:40,637
+Research cited in one of today's sources shows that language models can recognise their own writing, and that they tend to prefer it.
+
+12
+00:00:40,637 --> 00:00:45,150
+So when a model checks its own work, it is a lenient referee by design.
+
+13
+00:00:45,150 --> 00:00:48,187
+One builder in the pack described exactly this.
+
+14
+00:00:48,187 --> 00:00:52,512
+Every worker in their system checked its own output, and everything looked clean.
+
+15
+00:00:52,512 --> 00:00:54,162
+Then they split the job.
+
+16
+00:00:54,162 --> 00:00:59,075
+A separate checker, with one task: try to kill each finding before it moves on.
+
+17
+00:00:59,075 --> 00:01:01,350
+Three details made that checker work.
+
+18
+00:01:01,350 --> 00:01:03,362
+First, a fresh context.
+
+19
+00:01:03,362 --> 00:01:10,687
+When the checker was handed the worker's whole conversation, it agreed with everything, because it had already been talked into the answer.
+
+20
+00:01:10,687 --> 00:01:13,700
+Second, several lenses and a vote.
+
+21
+00:01:13,700 --> 00:01:20,575
+One checker looks at correctness, one at the sources, one at overclaiming, and the majority decides.
+
+22
+00:01:20,575 --> 00:01:23,612
+Third, an anchor outside the models.
+
+23
+00:01:23,612 --> 00:01:29,725
+If every checker compares a number against the same summary, their agreement is just an echo.
+
+24
+00:01:29,725 --> 00:01:35,125
+The anchor is the original source, the raw data, or a test that actually runs.
+
+25
+00:01:35,125 --> 00:01:37,087
+And then, test the tester.
+
+26
+00:01:37,087 --> 00:01:40,700
+Break something on purpose and make sure your checker notices.
+
+27
+00:01:40,700 --> 00:01:47,462
+If a deliberately broken answer passes, your checker is blind, and every green tick after that means nothing.
+
+28
+00:01:47,462 --> 00:01:49,650
+In the lab, you'll do exactly that.
+
+29
+00:01:49,650 --> 00:01:55,725
+Your coding agent will write a short report of twelve claims, each citing a passage from this pack.
+
+30
+00:01:55,725 --> 00:02:05,262
+A script will then plant six errors: a changed number, a reversed claim, a wrong citation, and others, including one typical of your own field.
+
+31
+00:02:05,262 --> 00:02:07,775
+Then three checkers try to find them.
+
+32
+00:02:07,775 --> 00:02:09,675
+The writer checking itself.
+
+33
+00:02:09,675 --> 00:02:13,987
+An independent verifier that sees only the claim and its source.
+
+34
+00:02:13,987 --> 00:02:18,550
+And an adversary that tries three different ways to disprove each claim.
+
+35
+00:02:18,550 --> 00:02:25,550
+You'll count what each one catches, and what each one wrongly flags, and you'll put a confidence interval on every number.
+
+36
+00:02:25,550 --> 00:02:29,300
+With only six planted errors, those intervals will be wide.
+
+37
+00:02:29,300 --> 00:02:31,087
+That's part of the lesson.
+
+38
+00:02:31,087 --> 00:02:37,475
+Robotics labs now publish success rates from thousands of trials, with intervals, for exactly this reason.
+
+39
+00:02:37,475 --> 00:02:44,787
+Start with Part A. Think of one mistake you often see in papers in your field, and write it down as your sixth error type.
+

@@ -1,0 +1,144 @@
+1
+00:00:00,050 --> 00:00:02,262
+Welcome to Module Eighteen.
+
+2
+00:00:02,262 --> 00:00:05,387
+A young songbird is not born knowing its song.
+
+3
+00:00:05,387 --> 00:00:08,200
+It listens to a tutor and stores a template.
+
+4
+00:00:08,200 --> 00:00:15,350
+Then it practises, badly at first, a scrappy subsong, and keeps adjusting until what it sings matches what it remembers.
+
+5
+00:00:15,350 --> 00:00:17,800
+The finished song is a learned behaviour.
+
+6
+00:00:17,800 --> 00:00:24,250
+It can be passed on, it can vary, and over generations, the versions that get copied spread into local dialects.
+
+7
+00:00:24,250 --> 00:00:26,762
+Agents now have learned behaviours too.
+
+8
+00:00:26,762 --> 00:00:28,412
+They're called skills.
+
+9
+00:00:28,412 --> 00:00:33,662
+A skill is a small folder with one key file in it, called SKILL dot M D.
+
+10
+00:00:33,662 --> 00:00:37,762
+At the top, a name and a short description of when to use it.
+
+11
+00:00:37,762 --> 00:00:43,675
+Below that, the instructions: a checklist, some rules, and the exact format of the result.
+
+12
+00:00:43,675 --> 00:00:47,112
+It can also carry extra reference files and scripts.
+
+13
+00:00:47,112 --> 00:00:50,875
+The trick that makes skills work is called progressive disclosure.
+
+14
+00:00:50,875 --> 00:00:54,950
+The agent always sees the short description of every skill it has.
+
+15
+00:00:54,950 --> 00:01:01,775
+But the full instructions only load when the skill is actually used, and the extra files load only if they're needed.
+
+16
+00:01:01,775 --> 00:01:07,587
+So you can keep a large library of skills, and it costs almost nothing until the moment one is called.
+
+17
+00:01:07,587 --> 00:01:14,962
+A recent study of eleven coding agents found that this skill format is now the most widely adopted way to extend them.
+
+18
+00:01:14,962 --> 00:01:16,850
+You can write skills yourself.
+
+19
+00:01:16,850 --> 00:01:18,312
+That's tutoring.
+
+20
+00:01:18,312 --> 00:01:22,937
+And now, agents are starting to write and rewrite their own, from experience.
+
+21
+00:01:22,937 --> 00:01:29,112
+The CMU course describes research where an agent turns its successful attempts into reusable workflows.
+
+22
+00:01:29,112 --> 00:01:31,212
+But notice one detail.
+
+23
+00:01:31,212 --> 00:01:37,287
+Before saving a workflow, the researchers ask a judge to check whether the attempt really succeeded.
+
+24
+00:01:37,287 --> 00:01:42,137
+Because a remembered mistake will steer the agent wrong, again and again.
+
+25
+00:01:42,137 --> 00:01:45,687
+That's exactly where the songbird metaphor breaks.
+
+26
+00:01:45,687 --> 00:01:51,525
+A bird checks its song against a template, and a population sorts good versions from bad ones.
+
+27
+00:01:51,525 --> 00:01:57,562
+An agent that rewrites its own skills has no template and no population, unless you give it one.
+
+28
+00:01:57,562 --> 00:02:03,162
+It can improve a skill into something worse, and then use that worse version every single time.
+
+29
+00:02:03,162 --> 00:02:06,062
+Cultural drift, with no selection at all.
+
+30
+00:02:06,062 --> 00:02:09,175
+So in the lab, you'll supply the selection.
+
+31
+00:02:09,175 --> 00:02:19,075
+You'll write a field data quality skill for your capstone, with your own hard-won rules in it, including this one: a zero count is an observation, never drop it.
+
+32
+00:02:19,075 --> 00:02:26,287
+Your agent will plant known problems in some messy spreadsheets, and then you'll test the skill the way you'd test any intervention.
+
+33
+00:02:26,287 --> 00:02:28,400
+With the skill, and without it.
+
+34
+00:02:28,400 --> 00:02:34,950
+Then you'll let the agent rewrite its own skill, and check both versions on a held-out file that the rewrite never saw.
+
+35
+00:02:34,950 --> 00:02:41,150
+If the new version only wins on the files it was tuned on, you've just watched overfitting happen in front of you.
+
+36
+00:02:41,150 --> 00:02:44,362
+Open the reading, and let's teach your agent a song.
+

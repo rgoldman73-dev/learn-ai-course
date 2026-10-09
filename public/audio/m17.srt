@@ -1,0 +1,184 @@
+1
+00:00:00,050 --> 00:00:06,700
+Welcome to Module Seventeen, and to a new unit: niches, and the tools that let an agent fill one.
+
+2
+00:00:06,700 --> 00:00:10,825
+Show an ornithologist a beak, and they'll tell you what the bird eats.
+
+3
+00:00:10,825 --> 00:00:12,950
+A stout cone cracks seeds.
+
+4
+00:00:12,950 --> 00:00:15,387
+A long curved bill probes flowers.
+
+5
+00:00:15,387 --> 00:00:17,300
+A hooked tip tears flesh.
+
+6
+00:00:17,300 --> 00:00:22,350
+Form fits function, and that fit is what makes an organism good at its niche.
+
+7
+00:00:22,350 --> 00:00:24,912
+An agent's appendages are its tools.
+
+8
+00:00:24,912 --> 00:00:28,287
+On its own, a model can only produce text.
+
+9
+00:00:28,287 --> 00:00:33,862
+Tools let it look things up, calculate exactly, read your files and change things in the world.
+
+10
+00:00:33,862 --> 00:00:35,437
+Why does a model need them?
+
+11
+00:00:35,437 --> 00:00:37,925
+The CMU course gives two reasons.
+
+12
+00:00:37,925 --> 00:00:40,475
+Some things a model simply cannot do.
+
+13
+00:00:40,475 --> 00:00:48,487
+Its knowledge was frozen when training ended, so it can't know today's date, or what's in your database, without asking something.
+
+14
+00:00:48,487 --> 00:00:51,662
+Other things it can do, but badly or slowly.
+
+15
+00:00:51,662 --> 00:00:58,162
+It can multiply two big numbers by reasoning step by step, but a calculator is faster and never wrong.
+
+16
+00:00:58,162 --> 00:01:00,337
+Here's the key idea for today.
+
+17
+00:01:00,337 --> 00:01:04,437
+Unlike a beak, a tool is made of words and rules.
+
+18
+00:01:04,437 --> 00:01:07,775
+It has a name, a description, and a schema.
+
+19
+00:01:07,775 --> 00:01:11,250
+The schema says exactly what a valid call looks like.
+
+20
+00:01:11,250 --> 00:01:13,112
+Which fields are required.
+
+21
+00:01:13,112 --> 00:01:14,850
+What type each one is.
+
+22
+00:01:14,850 --> 00:01:16,650
+Which values are allowed.
+
+23
+00:01:16,650 --> 00:01:18,787
+Metres and hectares, yes.
+
+24
+00:01:18,787 --> 00:01:20,937
+Acres, not in this tool.
+
+25
+00:01:20,937 --> 00:01:22,575
+And now the clever part.
+
+26
+00:01:22,575 --> 00:01:28,050
+A schema can be turned into a grammar, and the grammar can police the model while it writes.
+
+27
+00:01:28,050 --> 00:01:34,762
+At each step, before a token is drawn, every token that would break the rules gets its probability set to zero.
+
+28
+00:01:34,762 --> 00:01:38,350
+You've seen this move before, in the module on temperature.
+
+29
+00:01:38,350 --> 00:01:41,650
+It's the same sampling step, with a filter in front of it.
+
+30
+00:01:41,650 --> 00:01:47,775
+This is called constrained decoding, and it means the model's tool calls almost always come out well formed.
+
+31
+00:01:47,775 --> 00:01:49,687
+But notice the word formed.
+
+32
+00:01:49,687 --> 00:01:53,300
+Constrained decoding guarantees grammar, not meaning.
+
+33
+00:01:53,300 --> 00:01:58,162
+A perfectly valid call can still ask for the wrong species, or the wrong file.
+
+34
+00:01:58,162 --> 00:02:00,437
+So the rest of the job is design.
+
+35
+00:02:00,437 --> 00:02:07,300
+Keep tools few and clearly different, because two tools with similar names cause more mistakes than one missing tool.
+
+36
+00:02:07,300 --> 00:02:12,050
+Make errors that teach, saying which field was wrong and what is allowed.
+
+37
+00:02:12,050 --> 00:02:14,412
+And limit what each tool can reach.
+
+38
+00:02:14,412 --> 00:02:16,825
+Here's where the beak metaphor breaks.
+
+39
+00:02:16,825 --> 00:02:22,600
+A beak is fixed for life, and its fit was tested by selection over generations.
+
+40
+00:02:22,600 --> 00:02:26,587
+Tools can be added in seconds, and nothing tests them except you.
+
+41
+00:02:26,587 --> 00:02:31,012
+A finch never picks the wrong beak because the label was ambiguous.
+
+42
+00:02:31,012 --> 00:02:34,237
+A model chooses tools by reading their descriptions.
+
+43
+00:02:34,237 --> 00:02:40,787
+And every tool you add costs space in the context window, on every turn, whether it's used or not.
+
+44
+00:02:40,787 --> 00:02:50,137
+In the lab, you'll build three tools for your capstone: a taxonomy lookup, a file reader that can only see one folder, and a unit converter.
+
+45
+00:02:50,137 --> 00:02:56,100
+Then you'll give a model ten requests, some tricky, one dangerous, and watch which tool it reaches for.
+
+46
+00:02:56,100 --> 00:02:58,362
+Let's go and grow some appendages.
+

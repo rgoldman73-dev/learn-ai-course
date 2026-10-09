@@ -1,0 +1,168 @@
+1
+00:00:00,050 --> 00:00:02,050
+Welcome to Module Five.
+
+2
+00:00:02,050 --> 00:00:04,700
+Think about the last time you keyed out an insect.
+
+3
+00:00:04,700 --> 00:00:07,587
+You did not read six hundred species accounts.
+
+4
+00:00:07,587 --> 00:00:09,712
+You used a dichotomous key.
+
+5
+00:00:09,712 --> 00:00:11,525
+A few short questions.
+
+6
+00:00:11,525 --> 00:00:14,200
+Wings covering the abdomen, yes or no.
+
+7
+00:00:14,200 --> 00:00:19,937
+Each answer sent you to the next couplet, and within a minute you were on the one page that mattered.
+
+8
+00:00:19,937 --> 00:00:21,412
+The key is small.
+
+9
+00:00:21,412 --> 00:00:23,025
+The detail is deep.
+
+10
+00:00:23,025 --> 00:00:25,187
+And you only open what you need.
+
+11
+00:00:25,187 --> 00:00:28,400
+Today is about building that kind of key for your agent.
+
+12
+00:00:28,400 --> 00:00:33,562
+Every coding agent reads a special instruction file at the start of every session.
+
+13
+00:00:33,562 --> 00:00:44,800
+Claude Code reads a file called Claude dot M D. Codex and many other tools read Agents dot M D. Whatever is in that file is loaded into the context window, every single time.
+
+14
+00:00:44,800 --> 00:00:49,487
+And after yesterday, you know that window is a crowded, expensive habitat.
+
+15
+00:00:49,487 --> 00:00:51,000
+So what goes in it?
+
+16
+00:00:51,000 --> 00:00:57,925
+The team at OpenAI that built a large product almost entirely with their coding agent tried the obvious approach first.
+
+17
+00:00:57,925 --> 00:01:00,675
+One big instruction file with everything in it.
+
+18
+00:01:00,675 --> 00:01:02,512
+It failed in four ways.
+
+19
+00:01:02,512 --> 00:01:04,625
+It crowded out the actual work.
+
+20
+00:01:04,625 --> 00:01:07,862
+When everything was marked important, nothing was.
+
+21
+00:01:07,862 --> 00:01:10,250
+It went stale almost at once.
+
+22
+00:01:10,250 --> 00:01:12,487
+And nobody could check it automatically.
+
+23
+00:01:12,487 --> 00:01:14,025
+Their fix was simple.
+
+24
+00:01:14,025 --> 00:01:19,687
+Keep the instruction file to about a hundred lines, and treat it as a table of contents.
+
+25
+00:01:19,687 --> 00:01:25,550
+The real knowledge lives in a folder of short documents, and the instruction file just says where to look.
+
+26
+00:01:25,550 --> 00:01:27,950
+They call this progressive disclosure.
+
+27
+00:01:27,950 --> 00:01:32,000
+Start small, and follow the pointers only when the task needs them.
+
+28
+00:01:32,000 --> 00:01:34,787
+Claude Code's creator gives similar advice.
+
+29
+00:01:34,787 --> 00:01:36,400
+Keep the file short.
+
+30
+00:01:36,400 --> 00:01:41,650
+Put in the commands, the important files, the conventions, and the things the agent must never do.
+
+31
+00:01:41,650 --> 00:01:48,362
+Files can also nest, so a folder can carry its own small map that loads only when the agent works there.
+
+32
+00:01:48,362 --> 00:01:50,700
+Now, where does the metaphor fail?
+
+33
+00:01:50,700 --> 00:01:55,987
+A field key is written once, about organisms that do not change while you are keying them.
+
+34
+00:01:55,987 --> 00:02:00,787
+Your codebase changes every day, sometimes because of the agent itself.
+
+35
+00:02:00,787 --> 00:02:04,325
+A wrong couplet in a field guide wastes a few minutes.
+
+36
+00:02:04,325 --> 00:02:08,375
+A wrong line in your agent's map gets followed, confidently.
+
+37
+00:02:08,375 --> 00:02:16,162
+That is why the OpenAI team checked their map automatically, and even ran an agent whose only job was to tidy stale documents.
+
+38
+00:02:16,162 --> 00:02:24,412
+In today's lab you will create the repository for your capstone project, the small ecosystem of agents you will build by the end of this course.
+
+39
+00:02:24,412 --> 00:02:30,187
+Your coding agent will interview you first, then draft a short map and a few focused documents.
+
+40
+00:02:30,187 --> 00:02:35,175
+You will add a tiny script that fails if the map points at a file that no longer exists.
+
+41
+00:02:35,175 --> 00:02:39,237
+Then you will test the whole thing in a fresh session, and try to break it.
+
+42
+00:02:39,237 --> 00:02:41,987
+Open your terminal, and let's draw the map.
+

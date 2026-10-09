@@ -12,5 +12,215 @@
   "chars": 2541,
   "voice": "en-US-AvaMultilingualNeural",
   "rate": "+0%"
+ },
+ "m03": {
+  "file": "m03.mp3",
+  "seconds": 165.888,
+  "chars": 2638,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m04": {
+  "file": "m04.mp3",
+  "seconds": 164.064,
+  "chars": 2576,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m05": {
+  "file": "m05.mp3",
+  "seconds": 162.048,
+  "chars": 2634,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m06": {
+  "file": "m06.mp3",
+  "seconds": 163.464,
+  "chars": 2602,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m07": {
+  "file": "m07.mp3",
+  "seconds": 174.984,
+  "chars": 2679,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m08": {
+  "file": "m08.mp3",
+  "seconds": 172.032,
+  "chars": 2660,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m09": {
+  "file": "m09.mp3",
+  "seconds": 171.192,
+  "chars": 2703,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m10": {
+  "file": "m10.mp3",
+  "seconds": 181.632,
+  "chars": 2868,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m11": {
+  "file": "m11.mp3",
+  "seconds": 179.592,
+  "chars": 2807,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m12": {
+  "file": "m12.mp3",
+  "seconds": 182.088,
+  "chars": 2816,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m13": {
+  "file": "m13.mp3",
+  "seconds": 181.296,
+  "chars": 2881,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m14": {
+  "file": "m14.mp3",
+  "seconds": 168.576,
+  "chars": 2666,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m15": {
+  "file": "m15.mp3",
+  "seconds": 160.2,
+  "chars": 2520,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m16": {
+  "file": "m16.mp3",
+  "seconds": 175.92,
+  "chars": 2728,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m17": {
+  "file": "m17.mp3",
+  "seconds": 178.416,
+  "chars": 2771,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m18": {
+  "file": "m18.mp3",
+  "seconds": 164.424,
+  "chars": 2688,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m19": {
+  "file": "m19.mp3",
+  "seconds": 181.272,
+  "chars": 2832,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m20": {
+  "file": "m20.mp3",
+  "seconds": 176.52,
+  "chars": 2797,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m21": {
+  "file": "m21.mp3",
+  "seconds": 166.416,
+  "chars": 2682,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m22": {
+  "file": "m22.mp3",
+  "seconds": 179.256,
+  "chars": 2848,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m23": {
+  "file": "m23.mp3",
+  "seconds": 158.856,
+  "chars": 2513,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m24": {
+  "file": "m24.mp3",
+  "seconds": 158.832,
+  "chars": 2562,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m25": {
+  "file": "m25.mp3",
+  "seconds": 164.856,
+  "chars": 2613,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m26": {
+  "file": "m26.mp3",
+  "seconds": 160.344,
+  "chars": 2578,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m27": {
+  "file": "m27.mp3",
+  "seconds": 157.656,
+  "chars": 2616,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m28": {
+  "file": "m28.mp3",
+  "seconds": 160.968,
+  "chars": 2611,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m29": {
+  "file": "m29.mp3",
+  "seconds": 173.76,
+  "chars": 2772,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m30": {
+  "file": "m30.mp3",
+  "seconds": 175.728,
+  "chars": 2865,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m31": {
+  "file": "m31.mp3",
+  "seconds": 175.656,
+  "chars": 2728,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
+ },
+ "m32": {
+  "file": "m32.mp3",
+  "seconds": 175.296,
+  "chars": 2705,
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%"
  }
 }

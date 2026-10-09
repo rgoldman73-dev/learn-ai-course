@@ -1,0 +1,164 @@
+1
+00:00:00,050 --> 00:00:05,962
+Welcome to Module Twenty, and to the unit on the field notebook: retrieval and memory.
+
+2
+00:00:05,962 --> 00:00:07,962
+You know the forager's dilemma.
+
+3
+00:00:07,962 --> 00:00:13,612
+In a patchy landscape, every patch starts rich and gets poorer the longer you stay.
+
+4
+00:00:13,612 --> 00:00:21,262
+Charnov's marginal value theorem says leave when your rate of gain in this patch drops below what you could expect elsewhere, counting the travel.
+
+5
+00:00:21,262 --> 00:00:23,850
+Rich patches deserve long visits.
+
+6
+00:00:23,850 --> 00:00:26,625
+Poor ones, a quick look and move on.
+
+7
+00:00:26,625 --> 00:00:30,062
+An agent answering questions from documents is a forager.
+
+8
+00:00:30,062 --> 00:00:33,550
+Its documents are cut into chunks, those are the patches.
+
+9
+00:00:33,550 --> 00:00:35,512
+A search engine ranks them.
+
+10
+00:00:35,512 --> 00:00:37,700
+The agent works down the list.
+
+11
+00:00:37,700 --> 00:00:41,200
+And every chunk it reads costs context and attention.
+
+12
+00:00:41,200 --> 00:00:43,812
+The first few hits are usually the richest.
+
+13
+00:00:43,812 --> 00:00:48,050
+At some point, reading one more chunk is worth less than it costs.
+
+14
+00:00:48,050 --> 00:00:55,312
+Fetching the right evidence before answering has a name: retrieval augmented generation, or RAG.
+
+15
+00:00:55,312 --> 00:01:01,225
+And today, you'll use the source pack behind this very course as your first RAG system.
+
+16
+00:01:01,225 --> 00:01:05,187
+The classic way to rank chunks is called B M twenty-five.
+
+17
+00:01:05,187 --> 00:01:09,900
+It's keyword search, done cleverly, and it rests on three ideas.
+
+18
+00:01:09,900 --> 00:01:13,850
+First, rare words matter more than common ones.
+
+19
+00:01:13,850 --> 00:01:20,225
+A chunk that contains the word compaction is far more telling than one that contains the word agent.
+
+20
+00:01:20,225 --> 00:01:24,725
+Second, repetition helps, but with diminishing returns.
+
+21
+00:01:24,725 --> 00:01:28,787
+Five mentions beat one, but not by five times.
+
+22
+00:01:28,787 --> 00:01:34,337
+Third, long chunks get a penalty, because they contain more words just by chance.
+
+23
+00:01:34,337 --> 00:01:40,812
+Two dials control the last two ideas, and in today's widget you can turn them and watch the ranking change.
+
+24
+00:01:40,812 --> 00:01:43,875
+You might expect keyword search to be old-fashioned.
+
+25
+00:01:43,875 --> 00:01:50,375
+But one of today's sources found that none of the eleven coding agents it studied use embedding search to find code.
+
+26
+00:01:50,375 --> 00:01:56,312
+They use plain text search, and it works, because code and technical writing are full of exact names.
+
+27
+00:01:56,312 --> 00:01:59,075
+The other big decision is chunk size.
+
+28
+00:01:59,075 --> 00:02:03,900
+Too large, and each chunk covers several topics, so the right one is hard to pick out.
+
+29
+00:02:03,900 --> 00:02:06,900
+Too small, and the idea gets cut in half.
+
+30
+00:02:06,900 --> 00:02:09,637
+Overlapping chunks a little helps with the cut.
+
+31
+00:02:09,637 --> 00:02:12,412
+Here's where the foraging metaphor fails.
+
+32
+00:02:12,412 --> 00:02:13,900
+A forager learns.
+
+33
+00:02:13,900 --> 00:02:17,725
+It remembers which patches paid off and changes its behaviour.
+
+34
+00:02:17,725 --> 00:02:20,625
+B M twenty-five learns nothing at all.
+
+35
+00:02:20,625 --> 00:02:23,700
+The same question gets the same ranking forever.
+
+36
+00:02:23,700 --> 00:02:25,950
+And it doesn't know what words mean.
+
+37
+00:02:25,950 --> 00:02:33,912
+Ask about an agent forgetting its earlier rules, and it may never find the passage about compaction, because the words don't match.
+
+38
+00:02:33,912 --> 00:02:42,875
+In the lab, you'll write ten questions about things you've learned in this course, run them through the pack's search tool, and judge the top five results yourself.
+
+39
+00:02:42,875 --> 00:02:48,750
+That gives you a number, precision at five, and a little test set that you'll reuse for the rest of the unit.
+
+40
+00:02:48,750 --> 00:02:53,700
+Then your coding agent will try different dial settings to see whether anything beats the default.
+
+41
+00:02:53,700 --> 00:02:56,450
+Open the widget, and start foraging.
+

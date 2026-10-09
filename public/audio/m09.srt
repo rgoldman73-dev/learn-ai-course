@@ -1,0 +1,164 @@
+1
+00:00:00,050 --> 00:00:02,075
+Welcome to Module Nine.
+
+2
+00:00:02,075 --> 00:00:05,350
+You know the classic example of a fixed action pattern.
+
+3
+00:00:05,350 --> 00:00:09,412
+A goose sees an egg outside the nest and rolls it back with its bill.
+
+4
+00:00:09,412 --> 00:00:14,812
+The sequence runs the same way every time, even if you take the egg away halfway through.
+
+5
+00:00:14,812 --> 00:00:18,725
+It is cheap, fast, and reliable in the world it evolved for.
+
+6
+00:00:18,725 --> 00:00:21,062
+Flexible foraging is the opposite.
+
+7
+00:00:21,062 --> 00:00:25,037
+The animal samples, adjusts, and decides patch by patch.
+
+8
+00:00:25,037 --> 00:00:27,975
+It copes with surprises, but it costs more.
+
+9
+00:00:27,975 --> 00:00:29,987
+Most animals use both.
+
+10
+00:00:29,987 --> 00:00:32,862
+And when you build with language models, you should too.
+
+11
+00:00:32,862 --> 00:00:37,000
+Yesterday you built an agent that decides its own next step.
+
+12
+00:00:37,000 --> 00:00:40,087
+Today's question is when to let it decide at all.
+
+13
+00:00:40,087 --> 00:00:43,750
+Anthropic draws a clear line between two kinds of system.
+
+14
+00:00:43,750 --> 00:00:49,387
+In a workflow, you write the sequence of steps in code, and the model fills in each step.
+
+15
+00:00:49,387 --> 00:00:53,100
+In an agent, the model decides the sequence itself.
+
+16
+00:00:53,100 --> 00:00:55,637
+And their main advice is almost blunt.
+
+17
+00:00:55,637 --> 00:00:58,025
+Find the simplest solution that works.
+
+18
+00:00:58,025 --> 00:01:01,925
+Add complexity only when it clearly improves the results.
+
+19
+00:01:01,925 --> 00:01:04,650
+Sometimes that means no agent at all.
+
+20
+00:01:04,650 --> 00:01:07,325
+They describe five workflow patterns.
+
+21
+00:01:07,325 --> 00:01:11,637
+A chain, where one step feeds the next, with checks in between.
+
+22
+00:01:11,637 --> 00:01:15,787
+A router, which sorts each input to a specialised path.
+
+23
+00:01:15,787 --> 00:01:22,837
+Parallel work, either splitting a job into independent pieces, or running the same job several times and comparing.
+
+24
+00:01:22,837 --> 00:01:28,075
+An orchestrator, which breaks a job down on the fly and hands out the pieces.
+
+25
+00:01:28,075 --> 00:01:33,637
+And an evaluator, where one model drafts and another critiques, round after round.
+
+26
+00:01:33,637 --> 00:01:37,900
+Agents are for open-ended problems, where you cannot predict the steps.
+
+27
+00:01:37,900 --> 00:01:44,862
+They are powerful, but they cost more, they vary from run to run, and their mistakes can build on each other.
+
+28
+00:01:44,862 --> 00:01:48,562
+There is also evidence that fixed pipelines can hold their own.
+
+29
+00:01:48,562 --> 00:01:59,087
+One well-known pipeline with three fixed steps, find the problem, repair it, check it, was reported to be competitive with free-roaming agents on a standard coding benchmark.
+
+30
+00:01:59,087 --> 00:02:01,675
+So where does the metaphor fail?
+
+31
+00:02:01,675 --> 00:02:04,600
+The goose did not choose its egg-rolling routine.
+
+32
+00:02:04,600 --> 00:02:09,887
+Selection fixed it over countless generations, and running it costs nothing extra.
+
+33
+00:02:09,887 --> 00:02:15,475
+You choose, today, for each task, and flexibility is paid for on every single run.
+
+34
+00:02:15,475 --> 00:02:19,875
+And unlike the goose, you can open up a workflow and test each step.
+
+35
+00:02:19,875 --> 00:02:23,737
+That inspectability is often the real reason to prefer one.
+
+36
+00:02:23,737 --> 00:02:27,887
+In today's lab you will run a literature-triage task two ways.
+
+37
+00:02:27,887 --> 00:02:31,875
+You will make twenty short abstracts with an answer key you check yourself.
+
+38
+00:02:31,875 --> 00:02:38,887
+Then you will triage them with a fixed chain, extract, check, decide, and with a free agent that plans its own approach.
+
+39
+00:02:38,887 --> 00:02:43,887
+You will compare accuracy, time and number of calls, and then read every mistake.
+
+40
+00:02:43,887 --> 00:02:47,750
+Notice how much easier it is to find where the chain went wrong.
+
+41
+00:02:47,750 --> 00:02:51,125
+Open your terminal, and let's compare repertoires.
+

@@ -1,0 +1,176 @@
+1
+00:00:00,050 --> 00:00:03,575
+Welcome to Module Thirty, and to the capstone.
+
+2
+00:00:03,575 --> 00:00:06,312
+Organisms don't only fit their niches.
+
+3
+00:00:06,312 --> 00:00:07,412
+They build them.
+
+4
+00:00:07,412 --> 00:00:09,250
+Beavers dam streams.
+
+5
+00:00:09,250 --> 00:00:11,437
+Earthworms remake the soil.
+
+6
+00:00:11,437 --> 00:00:15,037
+And the changed environment then shapes selection on the builders.
+
+7
+00:00:15,037 --> 00:00:19,787
+You know this as niche construction, a two-way fit worked out over generations.
+
+8
+00:00:19,787 --> 00:00:22,725
+Your capstone is a niche-construction project.
+
+9
+00:00:22,725 --> 00:00:29,412
+You'll reshape one corner of your scientific work so that AI agents fit into it, and so that the work fits them.
+
+10
+00:00:29,412 --> 00:00:31,987
+Today is about choosing that corner well.
+
+11
+00:00:31,987 --> 00:00:37,225
+The first guide is a physicist, Matthew Schwartz, writing on Anthropic's science blog.
+
+12
+00:00:37,225 --> 00:00:39,850
+He describes an impedance mismatch.
+
+13
+00:00:39,850 --> 00:00:46,125
+Two systems that each work fine, but are badly matched, so most of what one puts in never reaches the other.
+
+14
+00:00:46,125 --> 00:00:50,262
+His point is that these models are good at science but are not scientists.
+
+15
+00:00:50,262 --> 00:00:56,962
+They have huge breadth, strong coding, maths and statistics, and they read papers and data at machine speed.
+
+16
+00:00:56,962 --> 00:00:59,987
+What they can't do yet is the deep conceptual part.
+
+17
+00:00:59,987 --> 00:01:08,587
+So he stopped treating Claude like a graduate student and went looking for problems shaped to its strengths, problems where the answer can be checked.
+
+18
+00:01:08,587 --> 00:01:10,962
+One of those problems was in your field.
+
+19
+00:01:10,962 --> 00:01:13,712
+Neutral theory of biodiversity.
+
+20
+00:01:13,712 --> 00:01:21,775
+An equation that had resisted solution at scale for twenty years was solved, and applied to the forest plot on Barro Colorado Island.
+
+21
+00:01:21,775 --> 00:01:23,325
+Technically impressive.
+
+22
+00:01:23,325 --> 00:01:28,325
+But when he showed it to an ecologist, the verdict was that most ecologists would shrug.
+
+23
+00:01:28,325 --> 00:01:30,925
+They already knew neutral theory falls short.
+
+24
+00:01:30,925 --> 00:01:38,075
+The ecologist's better idea was to study what's left after you subtract the neutral prediction, and that became real science.
+
+25
+00:01:38,075 --> 00:01:41,675
+Schwartz says nearly every project went this way.
+
+26
+00:01:41,675 --> 00:01:43,700
+The model supplied the horsepower.
+
+27
+00:01:43,700 --> 00:01:45,687
+The expert supplied the taste.
+
+28
+00:01:45,687 --> 00:01:50,200
+The second guide comes from engineers who put agents into companies for a living.
+
+29
+00:01:50,200 --> 00:01:52,800
+Their rule is to audit before you automate.
+
+30
+00:01:52,800 --> 00:01:56,950
+One client needed seventeen steps to pay a single invoice.
+
+31
+00:01:56,950 --> 00:02:01,150
+After the audit it was seven, and agents were only one part of the fix.
+
+32
+00:02:01,150 --> 00:02:07,262
+Their method is to map the process as it really happens, which is usually far longer than the version on paper.
+
+33
+00:02:07,262 --> 00:02:09,987
+Then sort every step into four buckets.
+
+34
+00:02:09,987 --> 00:02:10,975
+Delete it.
+
+35
+00:02:10,975 --> 00:02:12,900
+Turn it into a simple rule.
+
+36
+00:02:12,900 --> 00:02:14,225
+Give it to an agent.
+
+37
+00:02:14,225 --> 00:02:15,825
+Or keep a human on it.
+
+38
+00:02:15,825 --> 00:02:19,625
+And measure before you build, so you can prove the change later.
+
+39
+00:02:19,625 --> 00:02:21,762
+Here's where the metaphor breaks.
+
+40
+00:02:21,762 --> 00:02:24,637
+Niche construction is slow and mutual.
+
+41
+00:02:24,637 --> 00:02:30,850
+Automation is fast, and if the process is broken, it simply runs the broken process faster.
+
+42
+00:02:30,850 --> 00:02:36,750
+In the lab, your coding agent will interview you about one workflow you really do, step by step.
+
+43
+00:02:36,750 --> 00:02:48,137
+Then it sorts the steps, finds a checkable anchor for every agent step, plans your baseline measurements, and writes a one-page capstone spec that gives each of your earlier builds a job.
+
+44
+00:02:48,137 --> 00:02:55,675
+Start with Part A. Choose one recurring workflow, and list the steps as you actually do them, including the annoying ones.
+

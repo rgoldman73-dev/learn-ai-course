@@ -1,0 +1,196 @@
+1
+00:00:00,050 --> 00:00:02,425
+Welcome to Module Thirty-One.
+
+2
+00:00:02,425 --> 00:00:06,225
+Community assembly is one of ecology's oldest puzzles.
+
+3
+00:00:06,225 --> 00:00:08,762
+A set of species arrives at a site.
+
+4
+00:00:08,762 --> 00:00:10,162
+Some are filtered out.
+
+5
+00:00:10,162 --> 00:00:13,512
+Some coexist because they use different resources.
+
+6
+00:00:13,512 --> 00:00:16,487
+Some interactions hold the whole community together.
+
+7
+00:00:16,487 --> 00:00:18,125
+And order matters.
+
+8
+00:00:18,125 --> 00:00:20,937
+The first arrivals change what can follow.
+
+9
+00:00:20,937 --> 00:00:23,312
+Today you assemble your own community.
+
+10
+00:00:23,312 --> 00:00:26,487
+A router that decides how hard each job is.
+
+11
+00:00:26,487 --> 00:00:32,737
+Two specialist agents, one triaging new papers against your notebook, one checking your field data.
+
+12
+00:00:32,737 --> 00:00:34,437
+A memory to search.
+
+13
+00:00:34,437 --> 00:00:37,425
+Verifiers that try to break every claim.
+
+14
+00:00:37,425 --> 00:00:39,812
+And you, approving the final step.
+
+15
+00:00:39,812 --> 00:00:43,612
+All of these parts already exist, built across this course.
+
+16
+00:00:43,612 --> 00:00:45,750
+Today they become one system.
+
+17
+00:00:45,750 --> 00:00:48,487
+The ecological rules translate well.
+
+18
+00:00:48,487 --> 00:00:50,900
+First, niche differentiation.
+
+19
+00:00:50,900 --> 00:00:56,275
+Each agent owns its own work, and no two agents ever write the same file.
+
+20
+00:00:56,275 --> 00:01:01,725
+One source in the pack puts it neatly: if a job recurs every week, give it an agent.
+
+21
+00:01:01,725 --> 00:01:04,375
+If it happens once, it's a skill.
+
+22
+00:01:04,375 --> 00:01:07,462
+Second, interactions must be explicit.
+
+23
+00:01:07,462 --> 00:01:12,287
+A handoff between agents is a file at a known place, with a fixed shape.
+
+24
+00:01:12,287 --> 00:01:16,812
+It says who sent it, who receives it, and what done looks like for the next stage.
+
+25
+00:01:16,812 --> 00:01:24,512
+And every role says what to do when the payload is incomplete, because an agent that's helpful without the facts is writing fiction.
+
+26
+00:01:24,512 --> 00:01:26,212
+Third, structure.
+
+27
+00:01:26,212 --> 00:01:29,437
+A course in the pack has a sentence worth memorising.
+
+28
+00:01:29,437 --> 00:01:31,662
+The loop lives inside a node.
+
+29
+00:01:31,662 --> 00:01:33,912
+The graph lives between nodes.
+
+30
+00:01:33,912 --> 00:01:40,937
+Inside each specialist, produce, check, correct, and repeat until the check passes, at most three times.
+
+31
+00:01:40,937 --> 00:01:46,525
+Between specialists, split the work, merge it with plain code, and send through a gate.
+
+32
+00:01:46,525 --> 00:01:51,975
+If one piece fails, send back only that piece, with the reason and a strict scope.
+
+33
+00:01:51,975 --> 00:01:57,187
+Send back the whole batch, and correct work gets rewritten and the run never settles.
+
+34
+00:01:57,187 --> 00:01:59,562
+Fourth, order of arrival.
+
+35
+00:01:59,562 --> 00:02:01,700
+Build the checks before the workers.
+
+36
+00:02:01,700 --> 00:02:07,237
+Write each check so a program can run it, and feed it a known bad record to prove it can fail.
+
+37
+00:02:07,237 --> 00:02:09,462
+Here's where the metaphor breaks.
+
+38
+00:02:09,462 --> 00:02:15,375
+Real communities assemble themselves, and unplanned interactions can still find a balance.
+
+39
+00:02:15,375 --> 00:02:18,387
+Your system only has the interactions you build.
+
+40
+00:02:18,387 --> 00:02:21,125
+An untested connection doesn't settle down.
+
+41
+00:02:21,125 --> 00:02:22,812
+It fails quietly.
+
+42
+00:02:22,812 --> 00:02:29,400
+In the lab, your coding agent will assemble the pipeline from your earlier builds, without rewriting what already works.
+
+43
+00:02:29,400 --> 00:02:36,612
+Contracts first, then checks, then roles, then the pipeline, then a map of the whole system and four small state files.
+
+44
+00:02:36,612 --> 00:02:41,062
+Then a dry run on five abstracts and twenty rows of real field data.
+
+45
+00:02:41,062 --> 00:02:42,762
+Finally, three tests.
+
+46
+00:02:42,762 --> 00:02:45,012
+Did the output appear without you watching?
+
+47
+00:02:45,012 --> 00:02:46,962
+Could a stranger understand it?
+
+48
+00:02:46,962 --> 00:02:48,862
+Does a second run look the same?
+
+49
+00:02:48,862 --> 00:02:55,600
+Start with Part A. Write a four-line card for each of your two specialists, and one sentence that says when a run is done.
+

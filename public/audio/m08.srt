@@ -1,0 +1,188 @@
+1
+00:00:00,050 --> 00:00:01,912
+Welcome to Module Eight.
+
+2
+00:00:01,912 --> 00:00:05,125
+Synthetic biologists like to ask a blunt question.
+
+3
+00:00:05,125 --> 00:00:08,812
+What is the smallest set of parts that still counts as alive?
+
+4
+00:00:08,812 --> 00:00:11,050
+A minimal cell needs a boundary.
+
+5
+00:00:11,050 --> 00:00:12,412
+A way to sense.
+
+6
+00:00:12,412 --> 00:00:13,687
+A way to act.
+
+7
+00:00:13,687 --> 00:00:16,175
+A metabolism that keeps cycling.
+
+8
+00:00:16,175 --> 00:00:18,062
+And some way to persist.
+
+9
+00:00:18,062 --> 00:00:20,287
+Today you build the minimal agent.
+
+10
+00:00:20,287 --> 00:00:25,425
+Yesterday you saw that every real coding agent is built from the same seven parts.
+
+11
+00:00:25,425 --> 00:00:31,387
+Today you write the smallest thing that still has the essential ones, in about a hundred lines of Python.
+
+12
+00:00:31,387 --> 00:00:33,450
+It is smaller than you might expect.
+
+13
+00:00:33,450 --> 00:00:39,450
+One research agent, used as a baseline in serious studies, is roughly a hundred lines.
+
+14
+00:00:39,450 --> 00:00:45,325
+A loop, one prompt, one tool, a growing list of messages, and two limits.
+
+15
+00:00:45,325 --> 00:00:46,362
+That is it.
+
+16
+00:00:46,362 --> 00:00:49,375
+The secret is that tools are just text.
+
+17
+00:00:49,375 --> 00:00:52,525
+The model reads a short description of each tool.
+
+18
+00:00:52,525 --> 00:00:59,125
+When it wants one, it writes a small piece of structured text that says, use this tool, with these settings.
+
+19
+00:00:59,125 --> 00:01:05,000
+Your code reads that, runs the real function, and pastes the result back into the conversation.
+
+20
+00:01:05,000 --> 00:01:10,987
+Then the model reads everything again, including the new result, and decides what to do next.
+
+21
+00:01:10,987 --> 00:01:14,012
+One writer took minimalism to an extreme.
+
+22
+00:01:14,012 --> 00:01:21,487
+His experiment, called Ouro, gives a model one instruction and one tool, the ability to run code inside its own editor.
+
+23
+00:01:21,487 --> 00:01:25,462
+The model's first job is to rewrite itself into a proper loop.
+
+24
+00:01:25,462 --> 00:01:26,837
+And it does.
+
+25
+00:01:26,837 --> 00:01:30,500
+Then it keeps going, building new features onto itself.
+
+26
+00:01:30,500 --> 00:01:35,550
+It is a lovely demonstration of how little a capable model needs to grow a whole system.
+
+27
+00:01:35,550 --> 00:01:37,225
+But read his warning.
+
+28
+00:01:37,225 --> 00:01:38,887
+There are no guardrails.
+
+29
+00:01:38,887 --> 00:01:42,675
+Nothing stops it from breaking itself, or anything else.
+
+30
+00:01:42,675 --> 00:01:45,950
+He says to run it only inside a sealed container.
+
+31
+00:01:45,950 --> 00:01:49,050
+And that is where today's metaphor fails.
+
+32
+00:01:49,050 --> 00:01:51,312
+A minimal cell limits itself.
+
+33
+00:01:51,312 --> 00:01:57,100
+It can only use what reaches its membrane, and if something goes wrong, it dies quietly.
+
+34
+00:01:57,100 --> 00:01:59,950
+A minimal agent has no such limits.
+
+35
+00:01:59,950 --> 00:02:07,312
+Give it a command line and it can delete a folder, leak a password, or send an email, and it will not stop to reflect.
+
+36
+00:02:07,312 --> 00:02:09,150
+It just calls the next tool.
+
+37
+00:02:09,150 --> 00:02:11,987
+In biology, the boundary comes first.
+
+38
+00:02:11,987 --> 00:02:14,550
+In agents, people tend to add it last.
+
+39
+00:02:14,550 --> 00:02:15,962
+You will add it first.
+
+40
+00:02:15,962 --> 00:02:21,137
+So in today's lab, your agent gets only tools that read, never write.
+
+41
+00:02:21,137 --> 00:02:25,237
+Each tool refuses any path outside the one folder you allow.
+
+42
+00:02:25,237 --> 00:02:28,087
+There is a hard limit of eight turns.
+
+43
+00:02:28,087 --> 00:02:32,612
+And every turn is written to a small log file, so you can see exactly what it did.
+
+44
+00:02:32,612 --> 00:02:39,237
+For the model itself, you will use your coding agent's headless mode, so you do not need any new paid service.
+
+45
+00:02:39,237 --> 00:02:45,012
+Then you will grow it a third tool, and test the boundary by asking it to read something it should never see.
+
+46
+00:02:45,012 --> 00:02:49,325
+If the boundary holds, you have a minimal organism that is safe to keep.
+
+47
+00:02:49,325 --> 00:02:51,962
+Open your terminal, and let's build one.
+

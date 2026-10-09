@@ -1,0 +1,184 @@
+1
+00:00:00,050 --> 00:00:05,137
+Welcome to Module Sixteen, the last module of the multi-agent unit.
+
+2
+00:00:05,137 --> 00:00:09,100
+Picture a mixed-species flock moving through a tropical forest.
+
+3
+00:00:09,100 --> 00:00:14,487
+A dozen species, each feeding in its own way and at its own height.
+
+4
+00:00:14,487 --> 00:00:19,562
+And one or two sentinel species watching the sky and calling when a hawk appears.
+
+5
+00:00:19,562 --> 00:00:24,837
+Different roles, one shared purpose, and someone whose whole job is to watch for danger.
+
+6
+00:00:24,837 --> 00:00:26,587
+Here's a twist you may know.
+
+7
+00:00:26,587 --> 00:00:28,312
+Some sentinels cheat.
+
+8
+00:00:28,312 --> 00:00:34,100
+Fork-tailed drongos sometimes give false alarm calls, so that the birds they follow drop their food.
+
+9
+00:00:34,100 --> 00:00:38,375
+And the listeners learn, over time, which callers can't be trusted.
+
+10
+00:00:38,375 --> 00:00:42,600
+Keep that drongo in mind, because today you'll meet its digital cousin.
+
+11
+00:00:42,600 --> 00:00:44,200
+First, the guild.
+
+12
+00:00:44,200 --> 00:00:50,037
+One of today's sources turns a single Claude Code session into a six-role team for boring web work.
+
+13
+00:00:50,037 --> 00:00:51,862
+A planner maps out the job.
+
+14
+00:00:51,862 --> 00:00:55,187
+A navigator opens pages one at a time.
+
+15
+00:00:55,187 --> 00:00:57,075
+A filler enters the data.
+
+16
+00:00:57,075 --> 00:00:59,575
+A checker verifies every save.
+
+17
+00:00:59,575 --> 00:01:02,887
+A guard asks before anything is submitted or paid.
+
+18
+00:01:02,887 --> 00:01:06,300
+And a logger writes every step into a spreadsheet.
+
+19
+00:01:06,300 --> 00:01:11,975
+The single best habit in that course is this: do three rows, then stop and look.
+
+20
+00:01:11,975 --> 00:01:18,387
+Most broken runs fail on the first or second row, and catching it there saves you forty broken records.
+
+21
+00:01:18,387 --> 00:01:19,775
+Now the drongo.
+
+22
+00:01:19,775 --> 00:01:24,237
+A browser agent reads everything on a page, even hidden text.
+
+23
+00:01:24,237 --> 00:01:32,925
+If a page, or a document, or a cell in your spreadsheet, contains a sentence that looks like an instruction, the model may treat it as one.
+
+24
+00:01:32,925 --> 00:01:34,875
+That's called prompt injection.
+
+25
+00:01:34,875 --> 00:01:36,937
+The rule to remember is simple.
+
+26
+00:01:36,937 --> 00:01:40,550
+Text from outside is data, never instructions.
+
+27
+00:01:40,550 --> 00:01:43,262
+But writing that rule down is not enough.
+
+28
+00:01:43,262 --> 00:01:45,750
+Here's where the bird metaphor breaks.
+
+29
+00:01:45,750 --> 00:01:50,150
+Birds evaluate alarm calls as signals, and they learn which callers lie.
+
+30
+00:01:50,150 --> 00:01:53,900
+A language model doesn't separate instructions from data at all.
+
+31
+00:01:53,900 --> 00:01:56,950
+Both arrive as the same kind of tokens.
+
+32
+00:01:56,950 --> 00:02:01,312
+And it never learns, from one session to the next, who has lied before.
+
+33
+00:02:01,312 --> 00:02:04,650
+So the separation has to be built into the harness.
+
+34
+00:02:04,650 --> 00:02:07,050
+Code that handles the outside text.
+
+35
+00:02:07,050 --> 00:02:09,775
+Reviewers that can read but not act.
+
+36
+00:02:09,775 --> 00:02:12,925
+Permissions that make the dangerous thing impossible.
+
+37
+00:02:12,925 --> 00:02:20,762
+In the lab, you'll build a small guild that checks a list of ten marine species names against a free public taxonomy database.
+
+38
+00:02:20,762 --> 00:02:24,775
+A lookup script fetches each name and keeps the raw answer.
+
+39
+00:02:24,775 --> 00:02:29,050
+A read-only checker flags typos and outdated names.
+
+40
+00:02:29,050 --> 00:02:32,900
+A read-only guard watches for anything that looks like an instruction.
+
+41
+00:02:32,900 --> 00:02:36,162
+And a logger records every row with a reason.
+
+42
+00:02:36,162 --> 00:02:38,287
+I've hidden a drongo in the list.
+
+43
+00:02:38,287 --> 00:02:44,337
+Row eight contains a note that tries to order your agent to mark everything verified and delete the log.
+
+44
+00:02:44,337 --> 00:02:48,537
+Your job is to make sure the guard reports it, and that nothing obeys it.
+
+45
+00:02:48,537 --> 00:02:53,900
+This guild is your build for the unit, and it becomes the taxonomy checker in your capstone.
+
+46
+00:02:53,900 --> 00:02:55,862
+Let's go and catch a liar.
+

@@ -1,0 +1,192 @@
+1
+00:00:00,050 --> 00:00:04,050
+Welcome to Module Six, the last module of Unit Two.
+
+2
+00:00:04,050 --> 00:00:06,087
+Here is a hypothesis.
+
+3
+00:00:06,087 --> 00:00:08,725
+Warmer streams have fewer stoneflies.
+
+4
+00:00:08,725 --> 00:00:13,837
+It is a perfectly good hypothesis, and it is useless as a set of instructions.
+
+5
+00:00:13,837 --> 00:00:17,187
+Before anyone goes into the field, you write a protocol.
+
+6
+00:00:17,187 --> 00:00:18,412
+Which sites.
+
+7
+00:00:18,412 --> 00:00:19,612
+Which method.
+
+8
+00:00:19,612 --> 00:00:20,862
+What you will measure.
+
+9
+00:00:20,862 --> 00:00:22,612
+How many replicates.
+
+10
+00:00:22,612 --> 00:00:25,337
+And what result would count as an answer.
+
+11
+00:00:25,337 --> 00:00:29,850
+Hand a field team only the hypothesis, and they will come back with something.
+
+12
+00:00:29,850 --> 00:00:31,850
+It probably will not be what you needed.
+
+13
+00:00:31,850 --> 00:00:34,800
+A prompt to a coding agent is a protocol.
+
+14
+00:00:34,800 --> 00:00:42,725
+And you are handing it to a team that is extremely fast, extremely willing, and never asks a clarifying question unless you tell it to.
+
+15
+00:00:42,725 --> 00:00:44,550
+So what makes a good one?
+
+16
+00:00:44,550 --> 00:00:47,712
+One of today's guides boils it down to three parts.
+
+17
+00:00:47,712 --> 00:00:50,912
+A goal, a scope, and a done criterion.
+
+18
+00:00:50,912 --> 00:00:52,925
+What should be true at the end.
+
+19
+00:00:52,925 --> 00:00:55,925
+What the agent may and may not touch.
+
+20
+00:00:55,925 --> 00:00:57,937
+And how you will know it worked.
+
+21
+00:00:57,937 --> 00:01:00,037
+That last part matters most.
+
+22
+00:01:00,037 --> 00:01:01,325
+Tests pass.
+
+23
+00:01:01,325 --> 00:01:03,675
+The output matches a reference file.
+
+24
+00:01:03,675 --> 00:01:05,675
+Something a command can check.
+
+25
+00:01:05,675 --> 00:01:09,000
+Without it, done just means the agent thinks it is done.
+
+26
+00:01:09,000 --> 00:01:11,962
+The creator of Claude Code adds two habits.
+
+27
+00:01:11,962 --> 00:01:17,537
+First, ask the agent to make a plan and wait for your approval before it writes any code.
+
+28
+00:01:17,537 --> 00:01:19,725
+Fixing a plan takes seconds.
+
+29
+00:01:19,725 --> 00:01:22,550
+Fixing the wrong code takes much longer.
+
+30
+00:01:22,550 --> 00:01:26,487
+Second, give it a way to check its own work, like a test it can run.
+
+31
+00:01:26,487 --> 00:01:29,762
+With feedback, it improves on each pass.
+
+32
+00:01:29,762 --> 00:01:31,912
+He also has advice for day one.
+
+33
+00:01:31,912 --> 00:01:34,300
+Start with questions, not edits.
+
+34
+00:01:34,300 --> 00:01:41,050
+Ask the agent how a piece of code is used, or why a function looks so strange, and let it dig through the history.
+
+35
+00:01:41,050 --> 00:01:44,737
+Nothing changes, and you learn where its abilities end.
+
+36
+00:01:44,737 --> 00:01:47,975
+Another of today's writers suggests a trick I like.
+
+37
+00:01:47,975 --> 00:01:50,612
+Do not write a five-hundred-word prompt.
+
+38
+00:01:50,612 --> 00:01:57,137
+Write one line of intent and the criteria for success, then say, ask me questions before you start.
+
+39
+00:01:57,137 --> 00:02:02,187
+You answer a few multiple-choice questions, and the gaps in your own thinking show up early.
+
+40
+00:02:02,187 --> 00:02:04,287
+Now, where does the analogy break?
+
+41
+00:02:04,287 --> 00:02:09,125
+A field assistant who receives a vague protocol will usually come and ask.
+
+42
+00:02:09,125 --> 00:02:12,475
+A reviewer might catch the problem before the season starts.
+
+43
+00:02:12,475 --> 00:02:17,450
+A coding agent fills every gap with a confident guess and begins immediately.
+
+44
+00:02:17,450 --> 00:02:20,750
+If you want questions and a plan, you have to ask for them.
+
+45
+00:02:20,750 --> 00:02:28,612
+In today's lab you will take three prompts you really sent recently, rewrite them as protocols, and run the old and new versions side by side.
+
+46
+00:02:28,612 --> 00:02:30,937
+You will score each answer out of three.
+
+47
+00:02:30,937 --> 00:02:40,250
+Then you will finish Unit Two by adding a short, how-to-work-here section to your capstone's map, so every future session starts with your protocol already in place.
+
+48
+00:02:40,250 --> 00:02:43,412
+Open your terminal, and let's write better protocols.
+
