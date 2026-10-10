@@ -134,8 +134,8 @@ function splitSelfCheck(md) {
   const m = md.match(/^## [^\n]*Self-check[^\n]*\n[\s\S]*?(?=^## )/m);
   return m ? [md.slice(0, m.index), md.slice(m.index + m[0].length)] : [md, ''];
 }
-function renderMd(md) {
-  const { md: marked1 } = markCitations(md);
+function renderMd(md, citationOrder = []) {
+  const { md: marked1 } = markCitations(md, citationOrder);
   const div = h('div', { class: 'md', html: marked.parse(marked1) });
   div.querySelectorAll('a[href^="http"]').forEach((a) => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });
   div.querySelectorAll('pre').forEach((pre) => {
@@ -181,9 +181,10 @@ function Module(id) {
     wrap.append(body, after);
     fetchMd(m.id).then((md) => {
       const [a, b] = splitSelfCheck(md);
-      body.replaceChildren(renderMd(a));
+      const citationOrder = [];
+      body.replaceChildren(renderMd(a, citationOrder));
       if (m.questions.length) after.append(SelfCheck(m));
-      if (b) after.append(renderMd(b));
+      if (b) after.append(renderMd(b, citationOrder));
       const exBox = h('input', { type: 'checkbox', checked: !!S.get().exercise[m.id], onchange: (e) => S.setExercise(m.id, e.target.checked) });
       after.append(h('section', { class: 'card' }, h('label', { class: 'check' }, exBox, ' I did the lab')));
     }).catch(() => body.replaceChildren(h('p', { class: 'muted' }, navigator.onLine ? 'Could not load this module.' : 'Offline and this module is not cached yet.')));

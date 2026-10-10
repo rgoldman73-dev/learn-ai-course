@@ -5,13 +5,14 @@ A self-paced course on AI, agents, harnesses, RAG and evals, taught through evol
 - `course/outline.json` / `course/OUTLINE.md`: the 32-module outline. Its source of truth is `course/tools/outline_src.py`.
 - `course/modules/mNN.md`: module text. `course/narration/mNN.md`: narration scripts.
 - `scripts/prepare-data.mjs`: builds `src/generated/` and `public/data/` from `course/` and the RAG pack (`learn-ai-rag/`, which is not committed).
-- `public/audio/`: narration generated with edge-tts. Each file is cached by the service worker the first time it is played.
+- `public/audio/`: narration generated with edge-tts. First playback starts a full-file download for offline use; wait for the player to confirm it is available. A failed save can be retried by pausing and playing again. Unplayed narration is not guaranteed offline.
 
 ```sh
 npm install
 npm run narrate     # needs .venv with edge-tts; incremental
 npm run build       # prepare-data + vite build -> dist/
-npm run validate    # citation guardrail on course/ and public/data/
+npm run validate    # validate committed lessons, citations, audio and captions
+npm test            # player/cache, progress and citation regression tests
 npm run preview
 ```
 
