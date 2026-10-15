@@ -7,7 +7,7 @@ import { buildIndex, query, snippet } from './search.js';
 import { h, toast, download, shuffle } from './ui.js';
 import { AudioPlayer, stopAudio } from './audio.js';
 import { markCitations, wireCitations, byId as srcById, STARS } from './cite.js';
-import { mountWidgets, WIDGETS } from './widgets/index.js';
+import { mountWidgets, disposeWidgets, WIDGETS } from './widgets/index.js';
 
 const { units, modules } = course;
 const byId = Object.fromEntries(modules.map((m) => [m.id, m]));
@@ -298,7 +298,7 @@ function Widgets() {
 /* ---------- More / Notes / Settings / About ---------- */
 function More() {
   const w = h('div', { class: 'page' }, h('h1', null, 'More'));
-  [['#/search', '🔎 Search', 'Offline search over modules, sources and your notes'], ['#/widgets', '🧪 Field kit', 'Landscape optimizer, temperature sampler, BM25 playground'], ['#/notes', '🗒 Notes', 'All your module notes'], ['#/settings', '⚙️ Settings & backup', 'Theme, start date, export/import progress, install'], ['#/about', 'ℹ️ About', 'Sources, method and honest limitations']]
+  [['#/search', '🔎 Search', 'Offline search over modules, sources and your notes'], ['#/widgets', '🧪 Field kit', '3D weights and predictions, landscape optimizer, temperature sampler, BM25 playground'], ['#/notes', '🗒 Notes', 'All your module notes'], ['#/settings', '⚙️ Settings & backup', 'Theme, start date, export/import progress, install'], ['#/about', 'ℹ️ About', 'Sources, method and honest limitations']]
     .forEach(([href, t, d]) => w.append(h('a', { class: 'menu', href }, h('strong', null, t), h('span', { class: 'muted small' }, d))));
   return w;
 }
@@ -341,6 +341,7 @@ function About() {
 
 /* ---------- router ---------- */
 function render() {
+  disposeWidgets();
   stopAudio();
   const [pathPart, qs] = (location.hash || '#/').split('?');
   const params = new URLSearchParams(qs || '');

@@ -15,4 +15,17 @@ npm run validate    # citation guardrail on course/ and public/data/
 npm run preview
 ```
 
+## 3D weights and predictions lab
+
+Module 1 and **More → Field kit** include a rotatable 3D loss/fitness surface.
+Two weights control a small linear or nonlinear prediction model. The surface
+shows its mean squared error on 19 fixed synthetic examples; the linked plot
+shows the predictions and residuals. Drag or use arrow keys to orbit, adjust the
+weight sliders, and train one step or 60 steps. Fitness is defined as negative
+MSE. This is a complete two-weight teaching model, not a real LLM landscape.
+
+The renderer uses Canvas 2D projection with no extra runtime dependencies.
+Run `node --test scripts/weight-model.test.mjs` to verify the analytic gradients,
+known fit, error reduction, and displayed weight bounds.
+
 Deploy (only when approved): push to a GitHub repo, then set Settings → Pages → Source: GitHub Actions. `.github/workflows/deploy.yml` builds from the committed data.

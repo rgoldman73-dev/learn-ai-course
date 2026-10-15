@@ -106,4 +106,5 @@ export function landscape(el) {
       slider('Mutation size σ (ES)', 'sigma', 0.05, 1.5, 0.05),
       slider('Offspring per generation λ', 'lambda', 2, 30, 1),
       slider('Ruggedness', 'rug', 0, 1.5, 0.05)));
+  return stop;
 }
