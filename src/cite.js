@@ -7,8 +7,7 @@ export const STARS = { 3: '★★★', 2: '★★', 1: '★' };
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 // Replace [S:id] markers in markdown with inline HTML before it goes through marked.
-export function markCitations(md) {
-  const order = [];
+export function markCitations(md, order = []) {
   const out = md.replace(/\[S:(\d{15,20})\]/g, (_, id) => {
     let n = order.indexOf(id); if (n < 0) { order.push(id); n = order.length - 1; }
     const s = byId[id];
