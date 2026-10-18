@@ -10,6 +10,7 @@ import { markCitations, wireCitations, byId as srcById, STARS } from './cite.js'
 import { mountWidgets, disposeWidgets, WIDGETS } from './widgets/index.js';
 
 const { units, modules } = course;
+const tracks = course.tracks || [];
 const byId = Object.fromEntries(modules.map((m) => [m.id, m]));
 const unitOf = Object.fromEntries(units.map((u) => [u.id, u]));
 const ready = modules.filter((m) => m.ready);
@@ -25,6 +26,7 @@ const link = (href, text, cls = '') => h('a', { href, class: cls }, text);
 const ext = (href, text, cls = '') => h('a', { href, class: cls, target: '_blank', rel: 'noopener noreferrer' }, text);
 const num = (m) => Number(m.id.slice(1));
 const mdCache = new Map();
+const fetchTrack = (id) => fetch(new URL(`data/tracks/${id}.md`, location.href)).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); });
 const fetchMd = (id) => mdCache.get(id) || mdCache.set(id, fetch(new URL(`data/modules/${id}.md`, location.href)).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })).get(id);
 const outlineText = (m) => [m.title, m.objectives.join(' '), m.analogy, m.lab].join(' ');
 let index = null;
@@ -35,6 +37,7 @@ async function getIndex() {
     if (m.ready) { try { text += ' ' + (await fetchMd(m.id)).replace(/\[S:\d+\]|<[^>]+>|[#*`>|]/g, ' '); } catch { /* offline & uncached */ } }
     return { id: m.id, kind: 'module', title: m.title, text: text + ' ' + (S.get().notes[m.id] || '') };
   }));
+  for (const tr of tracks) { try { docs.push({ id: tr.id, kind: 'track', title: tr.title, text: (await fetchTrack(tr.id)).replace(/\[S:\d+\]|<[^>]+>|[#*`>|]/g, ' ') }); } catch { /* offline */ } }
   for (const s of sources) docs.push({ id: s.id, kind: 'source', title: s.title, text: `${s.author} ${s.topics.join(' ')}` });
   return (index = buildIndex(docs));
 }
@@ -124,6 +127,7 @@ function Modules(params) {
   const wrap = h('div', { class: 'page' }, h('h1', null, 'Modules'), h('p', { class: 'muted' }, `${modules.length} modules · ~30 min each · ${ready.length} written so far`),
     mk([['all', 'All'], ...units.map((u) => [String(u.id), 'U' + u.id])], () => unit, (v) => (unit = v)),
     mk([['all', 'Any'], ['todo', 'To do'], ['done', 'Done']], () => status, (v) => (status = v)),
+    tracks.map((tr) => h('a', { class: 'menu', href: `#/track/${tr.id}` }, h('strong', null, `🧭 ${tr.title}`), h('span', { class: 'muted small' }, 'Optional companion track'))),
     h('input', { type: 'search', placeholder: 'Filter modules…', class: 'inp', 'aria-label': 'Filter modules', oninput: (e) => { q = e.target.value.toLowerCase(); draw(); } }), list);
   draw();
   return wrap;
@@ -251,6 +255,7 @@ function Search(params) {
     const res = query(await getIndex(), q, 15); out.replaceChildren();
     if (!res.length) { out.append(h('p', { class: 'muted' }, 'No matches. Try other keywords.')); return; }
     res.forEach(({ d }) => {
+      if (d.kind === 'track') { out.append(h('a', { class: 'card hit', href: `#/track/${d.id}` }, h('strong', null, `Track · ${d.title}`), h('div', { class: 'muted small' }, snippet(d.text, q)))); return; }
       if (d.kind === 'module') { const m = byId[d.id]; out.append(h('a', { class: 'card hit', href: `#/module/${m.id}` }, h('strong', null, `Module ${num(m)} · ${m.title}`), h('div', { class: 'muted small' }, snippet(d.text, q)))); }
       else { const s = srcById[d.id]; out.append(h('a', { class: 'card hit', href: s.url, target: '_blank', rel: 'noopener noreferrer' }, h('strong', null, `Source · ${s.title}`), h('div', { class: 'muted small' }, `${s.author} · ${s.date} ${STARS[s.priority]}`))); }
     });
@@ -298,7 +303,7 @@ function Widgets() {
 /* ---------- More / Notes / Settings / About ---------- */
 function More() {
   const w = h('div', { class: 'page' }, h('h1', null, 'More'));
-  [['#/search', '🔎 Search', 'Offline search over modules, sources and your notes'], ['#/widgets', '🧪 Field kit', '3D weights and predictions, landscape optimizer, temperature sampler, BM25 playground'], ['#/notes', '🗒 Notes', 'All your module notes'], ['#/settings', '⚙️ Settings & backup', 'Theme, start date, export/import progress, install'], ['#/about', 'ℹ️ About', 'Sources, method and honest limitations']]
+  [['#/search', '🔎 Search', 'Offline search over modules, sources and your notes'], ...tracks.map((tr) => [`#/track/${tr.id}`, `🧭 ${tr.title}`, 'Optional companion track']), ['#/widgets', '🧪 Field kit', '3D weights and predictions, landscape optimizer, temperature sampler, BM25 playground'], ['#/notes', '🗒 Notes', 'All your module notes'], ['#/settings', '⚙️ Settings & backup', 'Theme, start date, export/import progress, install'], ['#/about', 'ℹ️ About', 'Sources, method and honest limitations']]
     .forEach(([href, t, d]) => w.append(h('a', { class: 'menu', href }, h('strong', null, t), h('span', { class: 'muted small' }, d))));
   return w;
 }
@@ -339,6 +344,17 @@ function About() {
       h('p', { class: 'small muted' }, `Content build: ${course.generated}`)));
 }
 
+/* ---------- companion track page ---------- */
+function Track(id) {
+  const tr = tracks.find((x) => x.id === id);
+  if (!tr) return h('div', { class: 'page' }, h('p', null, 'Track not found.'), link('#/modules', 'All modules'));
+  const body = h('div', null, h('p', { class: 'muted' }, 'Loading…'));
+  fetchTrack(id).then((md) => { const el = renderMd(md); body.replaceChildren(el); })
+    .catch(() => body.replaceChildren(h('p', { class: 'muted' }, navigator.onLine ? 'Could not load this track.' : 'Offline and this track is not cached yet.')));
+  return h('div', { class: 'page' }, h('div', { class: 'crumbs' }, link('#/modules', '← Modules'), h('span', { class: 'muted' }, 'Optional track')),
+    h('p', { class: 'muted small' }, '🎧 This companion page has no narration.'), body);
+}
+
 /* ---------- router ---------- */
 function render() {
   disposeWidgets();
@@ -348,6 +364,7 @@ function render() {
   const route = pathPart || '#/';
   let view;
   if (route.startsWith('#/module/')) view = Module(route.slice(9));
+  else if (route.startsWith('#/track/')) view = Track(route.slice(8));
   else if (route === '#/modules') view = Modules(params);
   else if (route === '#/quiz') view = Quiz();
   else if (route === '#/search') view = Search(params);

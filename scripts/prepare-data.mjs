@@ -90,10 +90,25 @@ for (const u of outline.units) for (const mo of u.modules) {
 // drop stale module files
 for (const f of fs.readdirSync(path.join(PUB, 'modules'))) if (!mods.some((m) => m.ready && `${m.id}.md` === f)) fs.unlinkSync(path.join(PUB, 'modules', f));
 
+/* ---------- 4. optional companion tracks (course/tracks/*.md -> public/data/tracks/) ---------- */
+const tracks = [];
+const TR = path.join(COURSE, 'tracks');
+fs.rmSync(path.join(PUB, 'tracks'), { recursive: true, force: true });
+if (fs.existsSync(TR)) {
+  fs.mkdirSync(path.join(PUB, 'tracks'), { recursive: true });
+  for (const f of fs.readdirSync(TR).filter((x) => x.endsWith('.md')).sort()) {
+    const p = parseModule(fs.readFileSync(path.join(TR, f), 'utf8'));
+    fs.writeFileSync(path.join(PUB, 'tracks', f), p.body);
+    tracks.push({ id: f.slice(0, -3), title: p.fm.title || f.slice(0, -3), cites: p.cites });
+  }
+}
+
 const course = {
+  tracks,
   title: outline.title, subtitle: outline.subtitle, generated: new Date().toISOString().slice(0, 10),
   units: outline.units.map((u) => ({ id: u.id, title: u.title, theme: u.theme, build: u.build })),
   modules: mods,
 };
 writeJSON(path.join(GEN, 'course.json'), course);
+console.log(`tracks: ${tracks.length}`);
 console.log(`course: ${mods.length} modules in outline, ${mods.filter((m) => m.ready).length} written, ${mods.filter((m) => m.audio).length} with audio`);
