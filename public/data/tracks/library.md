@@ -9,6 +9,7 @@ Learn AI is the spine: 32 modules with ecology analogies. Every outside course o
 | [Math: Mathematics for Machine Learning](#/track/mml) | foundations | linear algebra, calculus, probability, optimization | `-s mml` |
 | [Build: Stanford CS336](#/track/cs336) | advanced | build an LLM from scratch, GPUs, scaling, post-training | `-s cs336` |
 | [Production and safety (AI Engineering from Scratch)](#/track/production-safety) | intermediate | serving, cost, observability, release; red-teaming, alignment failures, governance. Its "Build it" lessons are also linked from m08, m10, m11, m13–m16, m18, m19 and m22–m26 | `-s aiefs` |
+| [Robotics: Principles of Robot Autonomy (Stanford)](https://porabook.com/) | intermediate | open robotics textbook: dynamics, control, planning, perception, filtering/SLAM, RL. Its AA174A lectures and 40 Colab labs are wired into the [robotics course](https://rgoldman73-dev.github.io/robotics-learning/) | `-s pora` |
 
 **Suggested order:** Primer, then Learn AI Units 1–3 with the Math track alongside, then AASE alongside Units 3–5, then CS336 alongside Units 6–7. Dip into Production and safety whenever you ship something.
 
