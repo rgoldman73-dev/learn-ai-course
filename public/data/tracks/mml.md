@@ -10,11 +10,11 @@ This is an optional companion track. Learn AI teaches the *intuition* with ecolo
 
 ## Ask the book (local RAG)
 
-The full book is indexed on the Grok Bot box at `/workspace/mml-rag` (1,039 passages, keyword plus embedding search). Each hit cites chapter, section and page, with a link straight to that PDF page:
+The full book is indexed in the course library on the Grok Bot box, `/workspace/course-rag` (source id `mml`, 1,039 passages, keyword plus embedding search). Each hit cites chapter, section and page, with a link straight to that PDF page:
 
 ```sh
-/workspace/mml-rag/search.py "Gaussian conditioning"      # top 5 passages
-/workspace/mml-rag/search.py "SVD low-rank" -k 8 --json   # more, as JSON
+/workspace/course-rag/search.py "Gaussian conditioning" -s mml      # top 5 passages from the book
+/workspace/course-rag/search.py "SVD low-rank" -s mml -k 8 --json   # more, as JSON
 ```
 
 Or just ask Grok Bot: "search MML for …".
