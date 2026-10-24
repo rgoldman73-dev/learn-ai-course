@@ -19,8 +19,12 @@ export function parseSRT(text) {
 const clock = (s) => { s = Math.max(0, Math.floor(s || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
 
 async function cacheOnFirstPlay(url) {
-  if (!('caches' in window)) return;
-  try { const c = await caches.open('learn-ai-audio'); if (!(await c.match(url))) await c.add(url); } catch { /* offline or quota: fine */ }
+  if (!('caches' in window)) return false;
+  try {
+    const c = await caches.open('learn-ai-audio');
+    if (!(await c.match(url))) await c.add(url);
+    return !!(await c.match(url));
+  } catch { return false; /* offline or quota: retry on the next play */ }
 }
 
 export function AudioPlayer({ src, srt, title, album }) {
@@ -33,25 +37,45 @@ export function AudioPlayer({ src, srt, title, album }) {
   const time = h('span', { class: 'muted small atime' }, '0:00');
   const speed = h('select', { class: 'aspeed', 'aria-label': 'Playback speed' }, SPEEDS.map((v) => h('option', { value: v, selected: v === audio.playbackRate }, `${v}×`)));
   const cap = h('div', { class: 'acap', 'aria-live': 'off' });
+  const status = h('p', { class: 'muted small', role: 'status' }, 'Narration is saved offline only after its full download finishes.');
   const ccBtn = h('button', { class: 'btn small', 'aria-pressed': 'true' }, 'CC');
   const transcript = h('details', { class: 'atrans' }, h('summary', { class: 'small' }, 'Transcript'));
   let cues = []; let showCC = S.get().captions !== false;
   ccBtn.setAttribute('aria-pressed', String(showCC)); cap.hidden = !showCC;
 
   const jump = (d) => { audio.currentTime = Math.min(Math.max(0, audio.currentTime + d), audio.duration || 1e9); };
-  playBtn.onclick = () => (audio.paused ? audio.play() : audio.pause());
+  let playbackFailed = false;
+  const showError = () => {
+    playbackFailed = true;
+    status.textContent = navigator.onLine ? 'Audio could not be loaded. Press Play to retry.' : 'Offline: narration is unavailable. Connect and play it to save the full audio on this device.';
+  };
+  const play = async () => {
+    try { if (audio.error) audio.load(); await audio.play(); }
+    catch { showError(); }
+  };
+  playBtn.onclick = () => (audio.paused ? play() : audio.pause());
   speed.onchange = () => { audio.playbackRate = +speed.value; S.get().speed = +speed.value; S.save(); };
   ccBtn.onclick = () => { showCC = !showCC; cap.hidden = !showCC; ccBtn.setAttribute('aria-pressed', String(showCC)); S.get().captions = showCC; S.save(); };
   seek.oninput = () => { if (audio.duration) audio.currentTime = (seek.value / 1000) * audio.duration; };
-  let cached = false;
+  let saving = null;
+  if ('caches' in window) caches.open('learn-ai-audio').then((c) => c.match(url)).then((r) => {
+    if (r && !saving && !playbackFailed) status.textContent = 'Narration available offline on this device.';
+  }).catch(() => {});
   audio.addEventListener('play', () => {
+    playbackFailed = false;
     playBtn.textContent = '❚❚'; playBtn.setAttribute('aria-label', 'Pause');
-    if (!cached) { cached = true; cacheOnFirstPlay(url); }
+    if (!saving) {
+      status.textContent = 'Saving narration for offline use…';
+      saving = cacheOnFirstPlay(url).then((ok) => {
+        if (playbackFailed) return;
+        status.textContent = ok ? 'Narration available offline on this device.' : 'Narration was not saved offline. Check your connection and device storage, then pause and play to retry.';
+      }).finally(() => { saving = null; });
+    }
     if ('mediaSession' in navigator) {
       navigator.mediaSession.metadata = new MediaMetadata({ title, artist: 'Learn AI', album, artwork: [{ src: new URL('icons/icon-512.png', location.href).href, sizes: '512x512', type: 'image/png' }] });
       const ms = navigator.mediaSession;
       const set = (a, f) => { try { ms.setActionHandler(a, f); } catch { /* unsupported action */ } };
-      set('play', () => audio.play()); set('pause', () => audio.pause());
+      set('play', play); set('pause', () => audio.pause());
       set('seekbackward', (e) => jump(-(e.seekOffset || 15))); set('seekforward', (e) => jump(e.seekOffset || 15));
       set('seekto', (e) => { audio.currentTime = e.seekTime; });
       set('stop', () => { audio.pause(); audio.currentTime = 0; });
@@ -69,11 +93,11 @@ export function AudioPlayer({ src, srt, title, album }) {
     }
   });
   audio.addEventListener('loadedmetadata', () => { time.textContent = `0:00 / ${clock(audio.duration)}`; });
-  audio.addEventListener('error', () => { cap.hidden = false; cap.textContent = navigator.onLine ? 'Audio could not be loaded.' : 'Offline: this narration has not been played (cached) on this device yet.'; });
+  audio.addEventListener('error', showError);
 
   if (srt) fetch(new URL(srt, location.href)).then((r) => (r.ok ? r.text() : '')).then((t) => {
     cues = parseSRT(t);
-    transcript.append(h('div', { class: 'small' }, cues.map((c) => h('p', null, h('a', { href: '#', onclick: (e) => { e.preventDefault(); audio.currentTime = c.start; audio.play(); } }, clock(c.start)), ' ', c.text))));
+    transcript.append(h('div', { class: 'small' }, cues.map((c) => h('p', null, h('a', { href: '#', onclick: (e) => { e.preventDefault(); audio.currentTime = c.start; play(); } }, clock(c.start)), ' ', c.text))));
   }).catch(() => {});
 
   return h('section', { class: 'card player' },
@@ -83,5 +107,5 @@ export function AudioPlayer({ src, srt, title, album }) {
       playBtn,
       h('button', { class: 'btn', 'aria-label': 'Forward 15 seconds', onclick: () => jump(15) }, '15↻'),
       speed, ccBtn),
-    seek, cap, transcript, audio);
+    seek, cap, status, transcript, audio);
 }

@@ -10,7 +10,8 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173",
     "data": "node scripts/prepare-data.mjs",
     "narrate": ".venv/bin/python learn-ai-rag/scripts/narrate.py course/narration public/audio",
-    "validate": "python3 learn-ai-rag/scripts/validate_citations.py course && python3 learn-ai-rag/scripts/validate_citations.py public/data"
+    "validate": "node scripts/validate-course.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "marked": "^12.0.2"
